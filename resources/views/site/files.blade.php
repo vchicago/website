@@ -12,7 +12,7 @@ Files
 	</div>
 	<div class="col-md-9 bg-light">
 	<div class="card-header">
-	<h2>vZAU Controller Files</h2>
+	<h2 class="text-primary">vZAU Controller Files</h2>
 	<hr>
     <ul class="nav nav-tabs nav-justified card-header-tabs bg-light" role="tablist">
         <li class="nav-item">
