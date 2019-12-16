@@ -562,7 +562,7 @@ class ControllerDash extends Controller
         $desc = $request->desc;
 
         Mail::send('emails.bug', ['reporter' => $reporter, 'url' => $url, 'error' => $error, 'desc' => $desc], function ($m) use ($reporter){
-            $m->from('bugs@'.Config::get('facility.email'), 'v'.Config::get('facility.name_short').' Bugs')->replyTo($reporter->email, $reporter->full_name);
+            $m->from('no-reply@'.Config::get('facility.email'), 'v'.Config::get('facility.name_short').' Bugs')->replyTo($reporter->email, $reporter->full_name);
             $m->subject('New Bug Report');
             $m->to('wm@'.Config::get('facility.email'));
         });

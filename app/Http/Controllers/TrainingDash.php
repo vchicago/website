@@ -394,9 +394,9 @@ class TrainingDash extends Controller
             $controller = User::find($ots->controller_id);
 
             Mail::send('emails.ots_assignment', ['ots' => $ots, 'controller' => $controller, 'ins' => $ins], function ($m) use ($ins, $controller) {
-                $m->from('no-reply@vzauartcc.org', 'vZAU ARTCC OTS Center')->replyTo($controller->email, $controller->full_name);
+                $m->from('no-reply@'.Config::get('facility.email'), 'vZAU ARTCC OTS Center')->replyTo($controller->email, $controller->full_name);
                 $m->subject('You Have Been Assigned an OTS for '.$controller->full_name);
-                $m->to($ins->email)->cc('ta@vzauartcc.org');
+                $m->to($ins->email)->cc('ta@'.Config::get('facility.email'));
             });
 
             $audit = new Audit;
