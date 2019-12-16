@@ -118,7 +118,7 @@
 	@if(Auth::user()->can('snrStaff'))
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="http://mail.vzauartcc.org">
+        <a class="nav-link" href="http://mail.chicagoartcc.org">
           <i class="fas fa-mail-bulk"></i>
           <span>Staff Email</span></a>
       </li>

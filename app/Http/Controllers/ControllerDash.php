@@ -296,7 +296,7 @@ class ControllerDash extends Controller
         if(Auth::user()->can('events')) {
             $registrations = EventRegistration::where('event_id', $event->id)->where('status', 0)->orderBy('created_at', 'ASC')->get();
             $presets = PositionPreset::get()->pluck('name', 'id');
-            $controllers = User::orderBy('lname', 'ASC')->get()->pluck('backwards_name', 'id');
+            $controllers = User::orderBy('lname', 'ASC')->get()->pluck('backwards_name_rating', 'id');
         } else {
             $presets = null;
             $registrations = null;
