@@ -32,7 +32,7 @@
 @endif
 
 <br>
-<p>If you have any questions or concerns, please contact the events coordinator at <a href="{{ 'mailto:ec@vzauartcc.org">ec@vzauartcc.org</a>.</p>
+<p>If you have any questions or concerns, please contact the events coordinator at <a href="{{ 'mailto:ec@chicagoartcc.org">ec@chicagoartcc.org</a>.</p>
 <br>
 
 <p>Sincerely,</p>
