@@ -35,13 +35,13 @@ class RosterController extends Controller
         if(Config::get('app.debug') == false) {
             if(!Auth::check() && !isset($_GET['token'])) {
                 $_SESSION['redirect'] = Config::get('app.url');
-                header("Location: https://login.vatusa.net/uls/v2/login?fac=ZAU&url=2");
+                header("Location: https://login.vatusa.net/uls/v2/login?fac=ZAU&url=1");
                 exit;
             }
         } else {
             if(!Auth::check() && !isset($_GET['token'])) {
                 $_SESSION['redirect'] = Config::get('app.url');
-                header("Location: https://login.vatusa.net/uls/v2/login?fac=ZAU&url=1");
+                header("Location: https://login.vatusa.net/uls/v2/login?fac=ZAU&url=2");
                 exit;
             }
         }
