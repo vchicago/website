@@ -56,7 +56,7 @@ Files
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
-                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">{{ $f->updated_at }}</td>
                                 <td align="center">
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
                                 </td>
@@ -82,7 +82,7 @@ Files
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
-                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">{{ $f->updated_at }}</td>
                                 <td align="center">
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
                                 </td>
@@ -108,7 +108,7 @@ Files
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
-                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">{{ $f->updated_at }}</td>
                                 <td align="center">
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
                                 </td>
@@ -134,7 +134,7 @@ Files
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
-                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">{{ $f->updated_at }}</td>
                                 <td align="center">
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
                                 </td>
@@ -160,7 +160,7 @@ Files
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
-                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">{{ $f->updated_at }}</td>
                                 <td align="center">
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
                                 </td>
@@ -186,7 +186,7 @@ Files
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
-                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">{{ $f->updated_at }}</td>
                                 <td align="center">
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
                                 </td>
@@ -212,7 +212,7 @@ Files
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
-                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">{{ $f->updated_at }}</td>
                                 <td align="center">
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
                                 </td>
