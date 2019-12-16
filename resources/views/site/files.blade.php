@@ -7,7 +7,7 @@ Files
 @section('content')
 	<div class="card o-hidden border-0 shadow-lg my-5 rounded">
 	  <div class="row no-gutters">
-    <div class="col-md-3 bg-primary">
+    <div class="col-md-3 bg-light">
       <img src="/photos/banner3.jpg" class="card-img img-fluid">
 	</div>
 	<div class="col-md-9 bg-light">
