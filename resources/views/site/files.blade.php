@@ -41,7 +41,7 @@ Files
 	<div class="card-body bg-light">
     <div class="tab-content bg-light">
         <div role="tabpanel" class="tab-pane active" id="vrc">
-            <table class="table table-bordered table-striped bg-light">
+            <table class="table table-bordered table-striped table-sm bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -67,7 +67,7 @@ Files
             </table>
         </div>
         <div role="tabpanel" class="tab-pane" id="vstars">
-            <table class="table table-bordered table-striped bg-light">
+            <table class="table table-bordered table-striped table-sm bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -93,7 +93,7 @@ Files
             </table>
         </div>
         <div role="tabpanel" class="tab-pane" id="veram">
-            <table class="table table-bordered table-striped bg-light">
+            <table class="table table-bordered table-striped table-sm bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -119,7 +119,7 @@ Files
             </table>
         </div>
         <div role="tabpanel" class="tab-pane" id="vatis">
-            <table class="table table-bordered table-striped bg-light">
+            <table class="table table-bordered table-striped table-sm bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -145,7 +145,7 @@ Files
             </table>
         </div>
         <div role="tabpanel" class="tab-pane" id="sop">
-            <table class="table table-bordered table-striped bg-light">
+            <table class="table table-bordered table-striped table-sm bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -171,7 +171,7 @@ Files
             </table>
         </div>
         <div role="tabpanel" class="tab-pane" id="loa">
-            <table class="table table-bordered table-striped bg-light">
+            <table class="table table-bordered table-striped table-sm bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
@@ -197,7 +197,7 @@ Files
             </table>
         </div>
 		        <div role="tabpanel" class="tab-pane" id="misc">
-            <table class="table table-bordered table-striped bg-light">
+            <table class="table table-bordered table-striped table-sm bg-light">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
