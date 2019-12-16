@@ -367,7 +367,7 @@
                 <tr>
                   <td class="content-block">
                     <span class="apple-link">For entertainment purposes only. Do not use for real world purposes. Part of the VATSIM Network.
-        </span><br>If you believe that you have received this email in error, please contact the vZAU ARTCC Webmaster at <a href="mailto:wm@chicagoartcc.org"</a>wm@vzauartcc.org
+        </span><br>If you believe that you have received this email in error, please contact the vZAU ARTCC Webmaster at <a href="mailto:wm@chicagoartcc.org">wm@chicagoartcc.org</a>
                     </a>
                   </td>
                 </tr>
