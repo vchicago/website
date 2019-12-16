@@ -12,7 +12,7 @@ Welcome
 			<img src="/photos/frontpage.png" class="card-img img-fluid" alt="...">
 			</div>
           <div class="col-lg-6">
-			<div class="card-body p-5">
+			<div class="card-body p-4">
               <div class="text-center">
 			          @if(Carbon\Carbon::now()->month == 12)
 						<img src="/photos/xmas_logo.png" class="img-fluid" alt="ZAU Logo">
