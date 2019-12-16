@@ -35,10 +35,13 @@ Files
             <a class="nav-link bg-primary text-gray-200" href="#vatis" role="tab" data-toggle="tab">vATIS</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link bg-primary text-gray-200" href="#sop" role="tab" data-toggle="tab">SOPs/LOAs</a>
+            <a class="nav-link bg-primary text-gray-200" href="#sop" role="tab" data-toggle="tab">SOPs</a>
+        </li>
+		<li class="nav-item">
+            <a class="nav-link bg-primary text-gray-200" href="#loa" role="tab" data-toggle="tab">LOAs</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link bg-primary text-gray-200" href="#loa" role="tab" data-toggle="tab">Miscellaneous</a>
+            <a class="nav-link bg-primary text-gray-200" href="#misc" role="tab" data-toggle="tab">Miscellaneous</a>
         </li>
         @if(Auth::user()->can('staff'))
             <li class="nav-item">
@@ -217,6 +220,37 @@ Files
             </table>
         </div>
         <div role="tabpanel" class="tab-pane" id="loa">
+            <table class="table table-bordered bg-white">
+                <thead>
+                    <tr>
+                        <th scope="col" width="10%">Name</th>
+                        <th scope="col" width="50%"><center>Description</center></th>
+                        <th scope="col" width="20%"><center>Uploaded/Updated at</center></th>
+                        <th scope="col" width="20%"><center>Actions</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if($loa->count() > 0)
+                        @foreach($loa as $f)
+                            <tr>
+                                <td>{{ $f->name }}</td>
+                                <td>{{ $f->desc }}</td>
+                                <td>{{ $f->updated_at }}</td>
+                                <td><center>
+                                    <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
+                                    @if(Auth::user()->can('files'))
+                                        <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
+                                    @endif
+									</center>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
+		<div role="tabpanel" class="tab-pane" id="misc">
             <table class="table table-bordered bg-white">
                 <thead>
                     <tr>

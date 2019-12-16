@@ -31,9 +31,10 @@ Upload File
                         1 => 'vSTARS',
                         2 => 'vERAM',
                         3 => 'vATIS',
-                        4 => 'SOPs/LOAs',
-                        5 => 'Misc',
-                        6 => 'Staff'
+                        4 => 'SOPs',
+						5 => 'LOAs',
+                        6 => 'Misc',
+                        7 => 'Staff'
                     ], $file->type, ['class' => 'form-control']) !!}
                 </div>
             </div>

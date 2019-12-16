@@ -28,10 +28,13 @@ Files
             <a class="nav-link" href="#vatis" role="tab" data-toggle="tab" style="color:black">vATIS</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#sop" role="tab" data-toggle="tab" style="color:black">SOPs/LOAs</a>
+            <a class="nav-link" href="#sop" role="tab" data-toggle="tab" style="color:black">SOPs</a>
+        </li>
+		<li class="nav-item">
+            <a class="nav-link" href="#loa" role="tab" data-toggle="tab" style="color:black">LOAs</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#loa" role="tab" data-toggle="tab" style="color:black">Misc</a>
+            <a class="nav-link" href="#misc" role="tab" data-toggle="tab" style="color:black">Misc</a>
         </li>
     </ul>
 	</div>
@@ -180,6 +183,32 @@ Files
                 <tbody>
                     @if($loa->count() > 0)
                         @foreach($loa as $f)
+                            <tr>
+                                <td>{{ $f->name }}</td>
+                                <td>{{ $f->desc }}</td>
+                                <td>{{ $f->updated_at }}</td>
+                                <td align="center">
+                                    <a href="{{ $f->path }}" target="_blank" class="btn btn-primary btn-circle simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
+		        <div role="tabpanel" class="tab-pane" id="misc">
+            <table class="table table-bordered table-striped bg-light">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col"><center>Description</center></th>
+                        <th scope="col"><center>Uploaded/Updated at</center></th>
+                        <th scope="col"><center>Download</center></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if($misc->count() > 0)
+                        @foreach($misc as $f)
                             <tr>
                                 <td>{{ $f->name }}</td>
                                 <td>{{ $f->desc }}</td>
