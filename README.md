@@ -6,6 +6,7 @@ Written in Laravel 5.6, The PHP Framework for Web Artisans
 Includes VATUSA API Integration
 
 Written by Ian Cowan, vZTL ARTCC Webmaster
+
 Customized and built for ZAU by Jeremy Russell, vZAU ARTCC Webmaster
 
 Prerequisites
