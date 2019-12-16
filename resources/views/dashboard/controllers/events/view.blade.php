@@ -5,18 +5,13 @@ View Event
 @endsection
 
 @section('content')
-<div class="container-fluid" style="background-color:#F0F0F0;">
-    &nbsp;
-    <h3>Event Information and Signup</h3>
-    &nbsp;
-</div>
-<br>
 <div class="container">
     @if($event->banner_path != null)
-        <div class="jumbotron">
-            <img src="{{ $event->banner_path }}" width="100%" alt="{{ $event->name }}">
-        </div>
+            <img class="img-responsive rounded" src="{{ $event->banner_path }}" width="100%" alt="{{ $event->name }}">
     @endif
+	<br>
+	<br>
+	<br>
     <div class="row">
         <div class="col-sm-6">
             <div class="card">
