@@ -372,7 +372,7 @@ class TrainingDash extends Controller
 
     public function rejectRecommendation($id) {
         if(!Auth::user()->can('snrStaff')) {
-            return redirect()->back()->with('error', 'Only the TA can reject OTS recommendations.');zt
+            return redirect()->back()->with('error', 'Only the TA can reject OTS recommendations.');
         } else {
             $ots = Ots::find($id);
             $ots->delete();
