@@ -258,9 +258,9 @@ class TrainingDash extends Controller
         }
 
         Mail::send(['html' => 'emails.training_ticket'], ['ticket' => $ticket, 'controller' => $controller, 'trainer' => $trainer], function ($m) use ($controller, $ticket) {
-            $m->from('training@notams.ztlartcc.org', 'vZTL ARTCC Training Department');
+            $m->from('no-reply@chicagoartcc.org', 'ZAU Training Department');
             $m->subject('New Training Ticket Submitted');
-            $m->to($controller->email)->cc('ta@ztlartcc.org');
+            $m->to($controller->email)->cc('ta@chicaoartcc.org');
         });
 
         $audit = new Audit;
@@ -372,7 +372,7 @@ class TrainingDash extends Controller
 
     public function rejectRecommendation($id) {
         if(!Auth::user()->can('snrStaff')) {
-            return redirect()->back()->with('error', 'Only the TA can reject OTS recommendations.');
+            return redirect()->back()->with('error', 'Only the TA can reject OTS recommendations.');zt
         } else {
             $ots = Ots::find($id);
             $ots->delete();
