@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="v{{ \Config::get('facility.name_short') }} ARTCC. For entertainment purposes only. Do not use for real world purposes. Part of the VATSIM Network.">
         <meta name="keywords" content="{{ \Config::get('facility.name_short') }},vatusa,vatsim,center,artcc,aviation,airplane,airport,controller,atc,air,traffic,control,pilot">
-        <meta name="author" content="Ian Cowan">
+        <meta name="author" content="Ian Cowan, Jeremy Russell">
 		
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

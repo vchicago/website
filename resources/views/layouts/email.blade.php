@@ -337,8 +337,8 @@
         <td>&nbsp;</td>
         <td class="container">
           <div class="content">
-			<a href="https://vzauartcc.org/">
-			<img src="https://vzauartcc.org/photos/logo.png" alt="ZAU Logo" style="width:100px;border:0;">
+			<a href="https://chicagoartcc.org/">
+			<img src="https://chicagoartcc.org/photos/logo.png" alt="ZAU Logo" style="width:100px;border:0;">
 			</a>
             <!-- START CENTERED WHITE CONTAINER -->
             <table role="presentation" class="main">
@@ -367,7 +367,7 @@
                 <tr>
                   <td class="content-block">
                     <span class="apple-link">For entertainment purposes only. Do not use for real world purposes. Part of the VATSIM Network.
-        </span><br>If you believe that you have received this email in error, please contact the vZAU ARTCC Webmaster at <a href="mailto:wm@vzauartcc.org"</a>wm@vzauartcc.org
+        </span><br>If you believe that you have received this email in error, please contact the vZAU ARTCC Webmaster at <a href="mailto:wm@chicagoartcc.org">wm@chicagoartcc.org</a>
                     </a>
                   </td>
                 </tr>

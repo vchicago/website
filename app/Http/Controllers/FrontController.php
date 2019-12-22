@@ -314,11 +314,11 @@ class FrontController extends Controller
         $visit->save();
 
         Mail::send('emails.visit.new', ['visit' => $visit], function($message) use ($visit){
-            $message->from('no-reply@vzauartcc.org', 'vZAU Visiting Department')->subject('New Visitor Request Submitted');
-            $message->to($visit->email)->cc('datm@vzauartcc.org');
+            $message->from('no-reply@'.Config::get('facility.email'), 'vZAU Visiting Department')->subject('New Visitor Request Submitted');
+            $message->to($visit->email)->cc('atm@'.Config::get('facility.email'))->cc('datm@'.Config::get('facility.email'));
         });
 
-        return redirect('/')->with('success', 'Thank you for your interest in the vZAU ARTCC! Your visit request has been submitted.');
+        return redirect('/')->with('success', 'Thank you for your interest in the ZAU ARTCC! Your visit request has been submitted.');
     }
 
     public function newFeedback() {
@@ -373,8 +373,9 @@ class FrontController extends Controller
         $vatis = File::where('type', 3)->orderBy('name', 'ASC')->get();
         $sop = File::where('type', 4)->orderBy('name', 'ASC')->get();
         $loa = File::where('type', 5)->orderBy('name', 'ASC')->get();
+		$misc = File::where('type', 6)->orderBy('name', 'ASC')->get();
 
-        return view('site.files')->with('vrc', $vrc)->with('vstars', $vstars)->with('veram', $veram)->with('vatis', $vatis)->with('sop', $sop)->with('loa', $loa);
+        return view('site.files')->with('vrc', $vrc)->with('vstars', $vstars)->with('veram', $veram)->with('vatis', $vatis)->with('sop', $sop)->with('loa', $loa)->with('misc', $misc);
     }
 
     public function showStaffRequest() {
@@ -412,8 +413,8 @@ class FrontController extends Controller
         $exp = $request->additional_information;
 
         Mail::send('emails.request_staff', ['name' => $name, 'email' => $email, 'org' => $org, 'date' => $date, 'time' => $time, 'exp' => $exp], function($message) use ($email, $name, $date) {
-            $message->from('no-reply@vzauartcc.org', 'vZAU ARTCC Staffing Requests')->subject('New Staffing Request for '.$date);
-            $message->to('ec@vzauartcc.org')->cc('atm@vzauartcc.org')->cc('datm@vzauartcc.org')->replyTo($email, $name);
+            $message->from('no-reply@'.Config::get('facility.email'), 'ZAU ARTCC Staffing Requests')->subject('New Staffing Request for '.$date);
+            $message->to('ec@'.Config::get('facility.email'))->cc('atm@'.Config::get('facility.email'))->cc('datm@'.Config::get('facility.email'))->replyTo($email, $name);
         });
 
         return redirect('/')->with('success', 'The staffing request has been delivered to the appropiate parties successfully. You should expect to hear back soon.');

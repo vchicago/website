@@ -7,12 +7,12 @@ Welcome
 @section('content')
 
     <div class="card o-hidden border-0 shadow-lg my-5">
-      <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-landing-image"></div>
-          <div class="col-lg-7">
-            <div class="p-5">
+        <div class="row no-gutters">
+          <div class="col-lg-6 p-0">
+			<img src="/photos/frontpage.png" class="card-img img-fluid" alt="...">
+			</div>
+          <div class="col-lg-6">
+			<div class="card-body p-4">
               <div class="text-center">
 			          @if(Carbon\Carbon::now()->month == 12)
 						<img src="/photos/xmas_logo.png" class="img-fluid" alt="ZAU Logo">
@@ -28,6 +28,5 @@ Welcome
             </div>
           </div>
         </div>
-      </div>
 
 @endsection
