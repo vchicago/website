@@ -144,11 +144,11 @@ Feedback Management
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     {!! Form::label('name', 'Your Name') !!}
-                                                    {!! Form::text('name', 'vZTL ARTCC Staff', ['class' => 'form-control']) !!}
+                                                    {!! Form::text('name', 'vZAU Staff', ['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="col-sm-6">
                                                     {!! Form::label('email', 'Your Email') !!}
-                                                    {!! Form::email('email', 'feedback@notams.ztlartcc.org', ['class' => 'form-control']) !!}
+                                                    {!! Form::email('email', 'no-reply@chicagoartcc.org', ['class' => 'form-control']) !!}
                                                 </div>
                                             </div>
                                             <br>
@@ -156,7 +156,7 @@ Feedback Management
                                             {!! Form::text('subject', 'An email regarding your recent feedback', ['class' => 'form-control']) !!}
                                             <br>
                                             {!! Form::label('body', 'Message') !!}
-                                            {!! Form::textArea('body', null, ['placeholder' => 'Gander Center, Pass your message...', 'class' => 'form-control']) !!}
+                                            {!! Form::textArea('body', null, ['placeholder' => Gander Center, Pass your message...', 'class' => 'form-control']) !!}
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
