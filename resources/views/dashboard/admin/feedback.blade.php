@@ -156,7 +156,7 @@ Feedback Management
                                             {!! Form::text('subject', 'An email regarding your recent feedback', ['class' => 'form-control']) !!}
                                             <br>
                                             {!! Form::label('body', 'Message') !!}
-                                            {!! Form::textArea('body', null, ['placeholder' => Gander Center, Pass your message...', 'class' => 'form-control']) !!}
+                                            {!! Form::textArea('body', null, ['placeholder' => 'Gander Center, Pass your message...', 'class' => 'form-control']) !!}
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
