@@ -14,7 +14,7 @@ Send New Email
             <div class="col-sm-4">
                 <div class="form-group">
                     {!! Form::label('from', 'From') !!}
-                    {!! Form::text('from', 'no-reply@'.\Config::get('facility.email'), ['disabled', 'class' => 'form-control']) !!}
+                    {!! Form::text('from', 'auto@chicagoartcc.email', ['disabled', 'class' => 'form-control']) !!}
                 </div>
             </div>
             <div class="col-sm-4">
