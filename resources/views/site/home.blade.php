@@ -21,7 +21,7 @@ Welcome
 						<img src="/photos/ny_logo.png" class="img-fluid" alt="ZAU Logo">
 					  @endif
 				   @elseif(Carbon\Carbon::now()->month == 1)
-				   	@if(Carbon\Carbon::now()->day <= 21)
+				   	@if(Carbon\Carbon::now()->day <= 2)
 						<img src="/photos/ny_logo.png" class="img-fluid" alt="ZAU Logo">
 					  @else
 						<img src="/photos/logo.png" class="img-fluid" alt="ZAU Logo">
