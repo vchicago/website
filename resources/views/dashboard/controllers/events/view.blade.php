@@ -33,7 +33,7 @@ View Event
             @if(Auth::user()->can('events'))
                 <br>
                 <div class="card">
-                <a href="#collapseCardExample" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
+                <a href="#PositionRequests" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
                   <h3>Position Requests</h3>
                 </a>
 				  <div class="collapse show" id="assignPositions">
