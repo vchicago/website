@@ -314,7 +314,9 @@ class FrontController extends Controller
         $visit->save();
 
         Mail::send('emails.visit.new', ['visit' => $visit], function($message) use ($visit){
+          
             $message->from('auto@chicagoartcc.email', 'vZAU Visiting Department')->subject('New Visitor Request Submitted');
+          
             $message->to($visit->email)->cc('atm@'.Config::get('facility.email'))->cc('datm@'.Config::get('facility.email'));
         });
 
@@ -413,7 +415,9 @@ class FrontController extends Controller
         $exp = $request->additional_information;
 
         Mail::send('emails.request_staff', ['name' => $name, 'email' => $email, 'org' => $org, 'date' => $date, 'time' => $time, 'exp' => $exp], function($message) use ($email, $name, $date) {
+
             $message->from('auto@chicagoartcc.email', 'ZAU ARTCC Staffing Requests')->subject('New Staffing Request for '.$date);
+
             $message->to('ec@'.Config::get('facility.email'))->cc('atm@'.Config::get('facility.email'))->cc('datm@'.Config::get('facility.email'))->replyTo($email, $name);
         });
 
