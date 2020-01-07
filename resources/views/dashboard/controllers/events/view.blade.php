@@ -33,10 +33,10 @@ View Event
             @if(Auth::user()->can('events'))
                 <br>
                 <div class="card">
-                <a href="#collapseCardExample" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <a href="#collapseCardExample" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
                   <h3>Position Requests</h3>
                 </a>
-				  <div class="collapse show" id="collapseCardExample">
+				  <div class="collapse show" id="assignPositions">
                     <div class="card-body">
                         <p>
                             <i>Assign Positions:</i>
@@ -44,7 +44,7 @@ View Event
                                     <button type="button" class="btn btn-success btn-sm pull-right" data-placement="top">Manual Assign</button>
                                 </span>
                         </p>
-                        <table class="table-sm table-bordered">
+                        <table class="table">
                             <thead>
                             <tr>
 
