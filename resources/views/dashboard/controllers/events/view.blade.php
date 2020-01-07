@@ -121,8 +121,8 @@ View Event
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-												    <button action="submit" class="btn btn-success">Assign Position</button>
-													<a href="/dashboard/admin/events/positions/deletereg/{{ $r->id }}" class="btn btn-danger">Delete Registration</a>
+												    <button action="submit" class="btn btn-success">Assign/Modify Position</button>
+													<a href="/dashboard/admin/events/positions/deletereg/{{ $r->id }}" data-placement="bottom" data-toggle="tooltip" title="*Controller will have registration removed*" class="btn btn-danger simple-tooltip">Delete Registration</a>
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                 </div>
                                                 {!! Form::close() !!}
