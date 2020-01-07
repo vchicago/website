@@ -14,9 +14,6 @@ Roster
     @if(Auth::user()->can('roster'))
         <a href="/dashboard/admin/roster/visit/requests" class="btn btn-warning">Visit Requests</a>
         <a href="/dashboard/admin/roster/purge-assistant" class="btn btn-danger">Roster Purge Assistant</a>
-		        <span data-toggle="modal" data-target="#allowVisitor">
-            <button type="button" class="btn btn-warning">Allow Rejected Visitor</button>
-        </span>
         <br><br>
     @endif
     <ul class="nav nav-tabs nav-justified" role="tablist">

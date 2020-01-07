@@ -260,7 +260,8 @@ class TrainingDash extends Controller
         Mail::send(['html' => 'emails.training_ticket'], ['ticket' => $ticket, 'controller' => $controller, 'trainer' => $trainer], function ($m) use ($controller, $ticket) {
             $m->from('no-reply@chicagoartcc.org', 'ZAU Training Department');
             $m->subject('New Training Ticket Submitted');
-            $m->to($controller->email)->cc('ta@chicaoartcc.org');
+
+            $m->to($controller->email)->cc('ta@chicagoartcc.org');
         });
 
         $audit = new Audit;
