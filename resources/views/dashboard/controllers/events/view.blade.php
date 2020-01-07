@@ -45,7 +45,7 @@ View Event
                                     <button type="button" class="btn btn-success btn-sm pull-right" data-placement="top">Manual Assign</button>
                                 </span>
                         </p>
-                        <table class="table-sm">
+                        <table class="table-sm table-bordered">
                             <thead>
                             <tr>
 
