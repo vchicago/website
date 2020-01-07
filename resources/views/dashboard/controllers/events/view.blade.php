@@ -45,11 +45,11 @@ View Event
                                     <button type="button" class="btn btn-success btn-sm pull-right" data-placement="top">Manual Assign</button>
                                 </span>
                         </p>
-                        <table class="table">
+                        <table class="table-sm">
                             <thead>
                             <tr>
 
-                                <th scope="col">Position</th>
+                                <th scope="col">Position Requested</th>
                                 <th scope="col">Controller</th>
                                 <th scope="col">Availability</th>
                                 <th scope="col">Actions</th>
@@ -87,7 +87,7 @@ View Event
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title">Assign Position</h5>
+                                                    <h5 class="modal-title">Assign/Modify Position</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -121,7 +121,7 @@ View Event
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-												    <button action="submit" class="btn btn-success">Assign/Modify Position</button>
+												    <button action="submit" class="btn btn-success">Assign Position</button>
 													<a href="/dashboard/admin/events/positions/deletereg/{{ $r->id }}" data-placement="bottom" data-toggle="tooltip" title="*Controller will have registration removed*" class="btn btn-danger simple-tooltip">Delete Registration</a>
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                 </div>
