@@ -80,6 +80,7 @@ View Event
                                             <span data-toggle="modal" data-target="#addrequest{{ $r->id }}">
                                                 <button type="button" class="btn btn-success btn-sm simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign Position"><i class="fas fa-check"></i></button>
                                             </span>
+											<a href="/dashboard/admin/events/positions/deletereg/{{ $r->id }}" class="btn btn-danger btn-sm simple-tooltip" data-toggle="tooltip" title="Delete Registration"><i class="fas fa-times"></i></a>
                                         </td>
                                     </tr>
 

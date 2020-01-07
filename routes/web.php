@@ -196,6 +196,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function() {
             Route::post('/positions/assign/{id}', 'AdminDash@assignPosition');
             Route::get('/positions/unassign/{id}', 'AdminDash@unassignPosition');
             Route::post('/positions/manual-assign/{id}', 'AdminDash@manualAssign');
+			Route::get('/positions/deletereg/{id}', 'AdminDash@removeRegistration');
             Route::get('/edit/{id}', 'AdminDash@editEvent');
             Route::post('/edit/{id}', 'AdminDash@saveEvent');
             Route::get('/delete/{id}', 'AdminDash@deleteEvent');

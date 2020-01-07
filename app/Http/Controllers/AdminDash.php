@@ -1475,6 +1475,12 @@ class AdminDash extends Controller
 
         return redirect()->back()->with('success', 'The position has been assigned successfully.');
     }
+	    public function removeRegistration($id) {
+        $reg = EventRegistration::find($id);
+		$reg->delete();
+
+        return redirect()->back()->with('success', 'The position request has been deleted successfully.');
+    }
 
     public function unassignPosition($id) {
         $position = EventRegistration::find($id);
