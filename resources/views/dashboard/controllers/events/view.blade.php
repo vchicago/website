@@ -77,9 +77,11 @@ View Event
                                             @endif
                                         </td>
                                         <td>
-                                            <span data-toggle="modal" data-target="#addrequest{{ $r->id }}">
-                                                <button type="button" class="btn btn-success btn-sm simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign Position"><i class="fas fa-check"></i></button>
-                                            </span>
+											<center>
+												<span data-toggle="modal" data-target="#addrequest{{ $r->id }}">
+													<button type="button" class="btn btn-success btn-sm simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign Position"><i class="fas fa-check"></i></button>
+												</span>
+											</center>
                                         </td>
                                     </tr>
 
