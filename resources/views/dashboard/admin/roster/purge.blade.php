@@ -56,7 +56,7 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($homec as $c)
+                    @foreach($home as $c)
                         <tr>
                             <td><a href="/dashboard/admin/roster/edit/{{ $c->id }}">{{ $c->backwards_name }} ({{ $c->id }})</a></td>
                             <td>{{ $c->rating_short }}</td>
@@ -104,7 +104,7 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($visitc as $c)
+                    @foreach($visit as $c)
                         <tr>
                             <td><a href="/dashboard/admin/roster/edit/{{ $c->id }}">{{ $c->backwards_name }} ({{ $c->id }})</a></td>
                             <td>{{ $c->rating_short }}</td>

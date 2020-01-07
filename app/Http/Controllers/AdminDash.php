@@ -242,10 +242,17 @@ class AdminDash extends Controller
             $month = date('n');
 
         $stats = ControllerLog::aggregateAllControllersByPosAndMonth($year, $month);
-        $homec = User::where('visitor', 0)->where('status', 1)->orderBy('lname', 'ASC')->get();
-        $visitc = User::where('visitor', 1)->where('status', 1)->orderBy('lname', 'ASC')->get();
+        $homec = User::where('visitor', 0)->where('status', 1)->get();
+        $visitc = User::where('visitor', 1)->where('status', 1)->get();
         $trainc = User::orderBy('lname', 'ASC')->get()->filter(function($user){
             return $user->hasRole('mtr') || $user->hasRole('ins');
+        });
+		$home = $homec->sortByDesc(function($user) use($stats) {
+            return $stats[$user->id]->total_hrs;
+        });
+
+        $visit = $visitc->sortByDesc(function($user) use($stats) {
+            return $stats[$user->id]->total_hrs;
         });
 
         if($month == 1) {
@@ -263,7 +270,8 @@ class AdminDash extends Controller
         $last_stats = ControllerLog::aggregateAllControllersByPosAndMonth($last_year, $last_month);
 
         return view('dashboard.admin.roster.purge')->with('stats', $stats)->with('last_stats', $last_stats)->with('homec', $homec)->with('visitc', $visitc)
-                                                   ->with('trainc', $trainc)->with('month', $month)->with('year', $year);
+                                                   ->with('trainc', $trainc)->with('month', $month)->with('year', $year)
+												   ->with('home', $home)->with('visit', $visit);
     }
 
     public function editController($id) {
