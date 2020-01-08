@@ -538,7 +538,7 @@ class ControllerDash extends Controller
         $user->opt = 1;
         $user->save();
 
-        return redirect()->back()->with('success', 'You have been opted in successfully and will now receive broadcast emails from the vZTL ARTCC.');
+        return redirect()->back()->with('success', 'You have been opted in successfully and will now receive broadcast emails from vZAU ARTCC.');
     }
 
     public function optOut() {
@@ -553,7 +553,7 @@ class ControllerDash extends Controller
         $user->opt = 0;
         $user->save();
 
-        return redirect()->back()->with('success', 'You have been opted out successfully and will no longer receive broadcast emails from the vZTL ARTCC.');
+        return redirect()->back()->with('success', 'You have been opted out successfully and will no longer receive broadcast emails from vZAU ARTCC.');
     }
 
     public function incidentReport() {
@@ -596,7 +596,7 @@ class ControllerDash extends Controller
         $desc = $request->desc;
 
         Mail::send('emails.bug', ['reporter' => $reporter, 'url' => $url, 'error' => $error, 'desc' => $desc], function ($m) use ($reporter){
-            $m->from('no-reply@'.Config::get('facility.email'), 'v'.Config::get('facility.name_short').' Bugs')->replyTo($reporter->email, $reporter->full_name);
+            $m->from('auto@chicagoartcc.email', 'v'.Config::get('facility.name_short').' Bugs')->replyTo($reporter->email, $reporter->full_name);
             $m->subject('New Bug Report');
             $m->to('wm@'.Config::get('facility.email'));
         });
