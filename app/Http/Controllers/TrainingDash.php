@@ -258,7 +258,7 @@ class TrainingDash extends Controller
         }
 
         Mail::send(['html' => 'emails.training_ticket'], ['ticket' => $ticket, 'controller' => $controller, 'trainer' => $trainer], function ($m) use ($controller, $ticket) {
-            $m->from('no-reply@chicagoartcc.org', 'ZAU Training Department');
+            $m->from('auto@chicagoartcc.email', 'ZAU Training Department');
             $m->subject('New Training Ticket Submitted');
 
             $m->to($controller->email)->cc('ta@chicagoartcc.org');
@@ -395,7 +395,7 @@ class TrainingDash extends Controller
             $controller = User::find($ots->controller_id);
 
             Mail::send('emails.ots_assignment', ['ots' => $ots, 'controller' => $controller, 'ins' => $ins], function ($m) use ($ins, $controller) {
-                $m->from('no-reply@'.Config::get('facility.email'), 'vZAU ARTCC OTS Center')->replyTo($controller->email, $controller->full_name);
+                $m->from('auto@chicagoartcc.email', 'vZAU ARTCC OTS Center')->replyTo($controller->email, $controller->full_name);
                 $m->subject('You Have Been Assigned an OTS for '.$controller->full_name);
                 $m->to($ins->email)->cc('ta@'.Config::get('facility.email'));
             });
