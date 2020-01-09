@@ -200,7 +200,7 @@ class AdminDash extends Controller
 
         return view('dashboard.admin.roster.index')->with('hcontrollers', $hcontrollers)->with('vcontrollers', $vcontrollers)->with('mtr', $mtr)->with('ins', $ins);
     }
-	
+
     public function disallowVisitReq($id) {
         $user = User::find($id);
         $name = $user->full_name;
@@ -233,7 +233,7 @@ class AdminDash extends Controller
 
         return redirect('/dashboard/controllers/roster')->with('success', 'Controller allowed to visit.');
     }
-	
+
     public function showRosterPurge($year = null, $month = null) {
         if ($year == null)
             $year = date('y');
@@ -1588,8 +1588,6 @@ class AdminDash extends Controller
 
     public function archiveIncident($id) {
         $incident = Incident::find($id);
-        $incident->controller_id = null;
-        $incident->reporter_id = null;
         $incident->status = 1;
         $incident->save();
 
