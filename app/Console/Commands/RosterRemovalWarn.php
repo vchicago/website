@@ -61,7 +61,7 @@ class RosterRemovalWarn extends Command
             }
             if($last_training == null || strtotime($t->date.' '.$t->start_time) < strtotime($last_month)) {
                 Mail::send('emails.inactive.obs', ['s' => $s], function($message) use ($s){
-                    $message->from('activity@notams.ztlartcc.org', 'vZTL ARTCC Activity Department')->subject('You have not met the activity requirement in the last 30 days');
+                    $message->from('auto@chicagoartcc.email', 'vZAU Activity Department')->subject('You have not met the activity requirement in the last 30 days');
                     $message->to($s->email);
                 });
             }
@@ -79,7 +79,7 @@ class RosterRemovalWarn extends Command
             }
             if($last_training == null || strtotime($t->date.' '.$t->start_time) < strtotime($last_month)) {
                 Mail::send('emails.inactive.student', ['s' => $s], function($message) use ($s){
-                    $message->from('activity@notams.ztlartcc.org', 'vZTL ARTCC Activity Department')->subject('You have not met the activity requirement in the last 30 days');
+                    $message->from('auto@chicagoartcc.email', 'vZAU ARTCC Activity Department')->subject('You have not met the activity requirement in the last 30 days');
                     $message->to($s->email);
                 });
             }
@@ -89,7 +89,7 @@ class RosterRemovalWarn extends Command
             $time = $stats[$c->id]->total_hrs;
             if($time == '--' || $time < 1) {
                 Mail::send('emails.inactive.controller', ['s' => $s], function($message) use ($s){
-                    $message->from('activity@notams.ztlartcc.org', 'vZTL ARTCC Activity Department')->subject('You have not met the activity requirement in the last 30 days');
+                    $message->from('auto@chicagoartcc.email, 'vZAU ARTCC Activity Department')->subject('You have not met the activity requirement in the last 30 days');
                     $message->to($s->email);
                 });
             }
