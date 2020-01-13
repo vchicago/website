@@ -89,7 +89,7 @@ class RosterRemovalWarn extends Command
             $time = $stats[$c->id]->total_hrs;
             if($time == '--' || $time < 1) {
                 Mail::send('emails.inactive.controller', ['s' => $s], function($message) use ($s){
-                    $message->from('auto@chicagoartcc.email, 'vZAU ARTCC Activity Department')->subject('You have not met the activity requirement in the last 30 days');
+                    $message->from('auto@chicagoartcc.email', 'vZAU ARTCC Activity Department')->subject('You have not met the activity requirement in the last 30 days');
                     $message->to($s->email);
                 });
             }
