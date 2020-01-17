@@ -62,10 +62,21 @@ View Event
 											<div class="alert alert-primary" role="alert">
 													<p class="text-primary">You have been assigned a position in this event!</p>
 												<hr>
-												<p class="text-primary">{{ $your_registration1->position_id }} from {{ $your_registration1->start_time }} to {{ $your_registration1->end_time }}</p>
+												<p class="text-primary">
+                                                <div class="col-sm-5">
+                                                    {!! Form::select('num1', $positions->pluck('name', 'id'), $your_registration1->position_id, ['disabled', 'placeholder' => 'Choice 1', 'class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    {!! Form::text('start_time1', $your_registration1->start_time, ['disabled', 'placeholder' => $event->start_time, 'class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    {!! Form::text('end_time1', $your_registration1->end_time, ['disabled', 'placeholder' => $event->end_time, 'class' => 'form-control']) !!}
+                                                </div>
+												</p>
 											</div>
 											@endif
 									@else
+										{!! Form::hidden('yr1', null) !!}
 											<p><i>Select your requested position and put the time you're available (time in zulu formatted, 00:00; if you are available for the entire event, you can leave the time blank). Please note that your request may or may not be honored:</i></p>
 											<div class="form-group">
 											  <div class="row">
