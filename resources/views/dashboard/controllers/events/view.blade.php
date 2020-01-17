@@ -16,7 +16,7 @@ View Event
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <h3>
+                    <h3 class="text-primary">
                         {{ $event->name }}
                     </h3>
                 </div>
@@ -146,8 +146,8 @@ View Event
 		<div class="col-sm-6">
             <div class="card">
                 <div class="card-header">
-                    <h3>
-                        Signup/Position Assignments
+                    <h3 class="text-primary">
+                        Position Assignments
                         @if(Auth::user()->can('events'))
                             @if($event->reg == 0)
                                 <a href="/dashboard/admin/events/toggle-reg/{{ $event->id }}" class="btn btn-success btn-simple-tooltip float-right" data-toggle="tooltip" title="Open Registration"><i class="fas fa-check"></i></a>
