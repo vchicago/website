@@ -13,9 +13,10 @@ View Event
 	<br>
 	<br>
     <div class="row">
-            <div class="card mx-3 my-2 w-100">
+        <div class="col-sm-6">
+            <div class="card">
                 <div class="card-header">
-                    <h3 class="text-primary">
+                    <h3>
                         {{ $event->name }}
                     </h3>
                 </div>
@@ -29,11 +30,9 @@ View Event
                     <p>{!! $event->description !!}</p>
                 </div>
             </div>
-	</div>
             @if(Auth::user()->can('events'))
-			<div class="row">
                 <br>
-                <div class="card mx-3 my-2 w-100">
+                <div class="card">
                 <a href="#assignPositions" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
                   <h3>Position Requests</h3>
                 </a>
@@ -144,8 +143,8 @@ View Event
                 </div>
             @endif
         </div>
-        <div class="row">
-            <div class="card mx-3 my-2 w-100">
+		<div class="col-sm-6">
+            <div class="card">
                 <div class="card-header">
                     <h3>
                         Signup/Position Assignments
