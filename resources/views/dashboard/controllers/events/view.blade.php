@@ -105,7 +105,6 @@ View Event
 				</div>
 				</div>
             @if(Auth::user()->can('events'))
-                <br>
                 <div class="card my-3">
                 <a href="#assignPositions" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
                   <h3>Position Requests</h3>
