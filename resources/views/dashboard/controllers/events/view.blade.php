@@ -30,7 +30,7 @@ View Event
                     <p>{!! $event->description !!}</p>
                 </div>
             </div>
-						<div class="card mb-2">
+						<div class="card my-2">
                 <a href="#signup" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
                   <h3>Event Signup</h3>
                 </a>
@@ -57,7 +57,7 @@ View Event
                                                     {!! Form::text('end_time1', $your_registration1->end_time, ['placeholder' => $event->end_time, 'class' => 'form-control']) !!}
                                                 </div>
                                             @else
-												<p class="text-primary">You have been assigned a position in this event!</p>
+												<p class="text-primary">  You have been assigned a position in this event!</p>
                                                 <div class="col-sm-5">
                                                     {!! Form::select('num1', $positions->pluck('name', 'id'), $your_registration1->position_id, ['disabled', 'placeholder' => 'Choice 1', 'class' => 'form-control']) !!}
                                                 </div>
