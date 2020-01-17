@@ -440,29 +440,6 @@ class TrainingDash extends Controller
             return redirect()->back()->with('error', 'This OTS has not been assigned to you.');
     }
     }
-	    public function completeMinorOTS(Request $request, $id) {
-        $validator = $request->validate([
-            'result' => 'required'
-        ]);
-
-        $ots = Ots::find($id);
-
-        if($ots->ins_id == Auth::id() || Auth::user()->can('snrStaff')) {
-            $ots->status = $request->result;
-			$ots->report = NULL;
-            $ots->save();
-
-            $audit = new Audit;
-            $audit->cid = Auth::id();
-            $audit->ip = $_SERVER['REMOTE_ADDR'];
-            $audit->what = Auth::user()->full_name.' updated an OTS for '.User::find($ots->controller_id)->full_name.'.';
-            $audit->save();
-
-            return redirect()->back()->with('success', 'The OTS has been updated successfully!');
-        } else {
-            return redirect()->back()->with('error', 'This OTS has not been assigned to you.');
-    }
-    }
 
     public function otsCancel($id) {
         $ots = Ots::find($id);

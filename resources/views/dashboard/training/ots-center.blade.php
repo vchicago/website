@@ -129,7 +129,7 @@ OTS Center
                                                 {!! Form::select('result', [2 => 'Pass', 3 => 'Fail'], null, ['placeholder' => 'Select Result', 'class' => 'form-control']) !!}
                                             </div>
                                             <div class="form-group">
-                                                {!! Form::file('ots_report', null, ['class' => 'form-control']) !!}
+                                                {!! Form::file('ots_report', ['class' => 'form-control']) !!}
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -168,7 +168,7 @@ OTS Center
                                 <td>{{ $o->recommender_name }}</td>
                                 <td>{{ $o->ins_name }}</td>
                                 <td>{{ $o->position_name }}</td>
-                                <td>{{ $o->result }}@if($o->result == 'Pass') <i class="fas fa-check"></i>@else <i class="fas fa-times"></i>@endif @if($o->report != NULL)<a href="{{ $o->report })" target="_blank">(View Report)</a>@endif</td>
+                                <td>{{ $o->result }}@if($o->result == 'Pass') <i class="fas fa-check"></i>@else <i class="fas fa-times"></i>@endif<a href="{{ $o->report })" target="_blank">(View Report)</a></td>
                             </tr>
                         @endforeach
                     @else
