@@ -142,83 +142,13 @@ View Event
 				  </div>
                 </div>
             @endif
-        </div>
-		<div class="col-sm-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="text-primary">
-                        Position Assignments
-                        @if(Auth::user()->can('events'))
-                            @if($event->reg == 0)
-                                <a href="/dashboard/admin/events/toggle-reg/{{ $event->id }}" class="btn btn-success btn-simple-tooltip float-right" data-toggle="tooltip" title="Open Registration"><i class="fas fa-check"></i></a>
-                            @else
-                                <a href="/dashboard/admin/events/toggle-reg/{{ $event->id }}" class="btn btn-danger btn-simple-tooltip float-right" data-toggle="tooltip" title="Close Registration"><i class="fas fa-times"></i></a>
-                            @endif
-                        @endif
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Position</th>
-                                <th scope="col">Controller</th>
-                                @if(Auth::user()->can('events'))
-                                    <th scope="col">Actions</th>
-                                @endif
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if($positions->count() > 0)
-                                @foreach($positions as $p)
-                                    <tr>
-                                        <td>{{ $p->name }}</td>
-                                        <td>
-                                            @if($p->controller->count() == 0)
-                                                No Assignment
-                                            @else
-                                                @foreach($p->controller as $c)
-                                                    <p>
-                                                        @if(Auth::user()->can('events'))
-                                                            <a href="/dashboard/admin/events/positions/unassign/{{ $c->id }}" style="color:inherit" data-toggle="tooltip" title="Unassign Controller"><i class="fas fa-times"></i></a>
-                                                            &nbsp;
-                                                        @endif
-                                                        <b>
-                                                            {{ $c->controller_name }}
-                                                            <i>
-                                                                @if($c->start_time != null)
-                                                                    ({{ $c->start_time }}
-                                                                @else
-                                                                    ({{ $event->start_time }}
-                                                                @endif
-                                                                -
-                                                                @if($c->end_time != null)
-                                                                    {{ $c->end_time }}z)
-                                                                @else
-                                                                    {{ $event->end_time }}z)
-                                                                @endif
-                                                            </i>
-                                                        </b>
-                                                    </p>
-                                                @endforeach
-                                            @endif
-                                        </td>
-                                        @if(Auth::user()->can('events'))
-                                            <td>
-                                                <a href="/dashboard/admin/events/position/delete/{{ $p->id }}" class="btn btn-danger btn-sm simple-tooltip" data-toggle="tooltip" title="Remove Position"><i class="fas fa-times"></i></a>
-                                            </td>
-                                        @endif
-                                    </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="3">No positions posted.</td>
-                                </tr>
-                            @endif
-                        </tbody>
-                    </table>
-                    <hr>
-                    <p><i>Select your requested position and put the time you're available (time in zulu formatted, 00:00; if you are available for the entire event, you can leave the time blank). Please note that your request may or may not be honored:</i></p>
+			<div class="card">
+                <a href="#assignPositions" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
+                  <h3>Event Signup</h3>
+                </a>
+				  <div class="collapse show" id="assignPositions">
+                    <div class="card-body">
+					<p><i>Select your requested position and put the time you're available (time in zulu formatted, 00:00; if you are available for the entire event, you can leave the time blank). Please note that your request may or may not be honored:</i></p>
                     @if($positions->count() > 0)
                         {!! Form::open(['action' => 'ControllerDash@signupForEvent']) !!}
                             @csrf
@@ -239,6 +169,7 @@ View Event
                                                     {!! Form::text('end_time1', $your_registration1->end_time, ['placeholder' => $event->end_time, 'class' => 'form-control']) !!}
                                                 </div>
                                             @else
+												<p class="text-primary">You have been assigned a position in this event!</p>
                                                 <div class="col-sm-5">
                                                     {!! Form::select('num1', $positions->pluck('name', 'id'), $your_registration1->position_id, ['disabled', 'placeholder' => 'Choice 1', 'class' => 'form-control']) !!}
                                                 </div>
@@ -306,6 +237,85 @@ View Event
                             <button type="button" class="btn btn-danger btn-sm" data-placement="top">Remove Position Preset</button>
                         </span>
                     @endif
+					</div>
+				</div>
+				</div>
+        </div>
+		<div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-primary">
+                        Position Assignments
+                        @if(Auth::user()->can('events'))
+                            @if($event->reg == 0)
+                                <a href="/dashboard/admin/events/toggle-reg/{{ $event->id }}" class="btn btn-success btn-simple-tooltip float-right" data-toggle="tooltip" title="Open Registration"><i class="fas fa-check-circle"></i></a>
+                            @else
+                                <a href="/dashboard/admin/events/toggle-reg/{{ $event->id }}" class="btn btn-warning btn-simple-tooltip float-right" data-toggle="tooltip" title="Close Registration"><i class="fas fa-ban"></i></a>
+                            @endif
+                        @endif
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Position</th>
+                                <th scope="col">Controller</th>
+                                @if(Auth::user()->can('events'))
+                                    <th scope="col">Actions</th>
+                                @endif
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if($positions->count() > 0)
+                                @foreach($positions as $p)
+                                    <tr>
+                                        <td>{{ $p->name }}</td>
+                                        <td>
+                                            @if($p->controller->count() == 0)
+                                                No Assignment
+                                            @else
+                                                @foreach($p->controller as $c)
+                                                    <p>
+                                                        @if(Auth::user()->can('events'))
+                                                            <a href="/dashboard/admin/events/positions/unassign/{{ $c->id }}" style="color:inherit" data-toggle="tooltip" title="Unassign Controller"><i class="fas fa-times"></i></a>
+                                                            &nbsp;
+                                                        @endif
+                                                        <b>
+                                                            {{ $c->controller_name }}
+                                                            <i>
+                                                                @if($c->start_time != null)
+                                                                    ({{ $c->start_time }}
+                                                                @else
+                                                                    ({{ $event->start_time }}
+                                                                @endif
+                                                                -
+                                                                @if($c->end_time != null)
+                                                                    {{ $c->end_time }}z)
+                                                                @else
+                                                                    {{ $event->end_time }}z)
+                                                                @endif
+                                                            </i>
+                                                        </b>
+                                                    </p>
+                                                @endforeach
+                                            @endif
+                                        </td>
+                                        @if(Auth::user()->can('events'))
+                                            <td>
+                                                <a href="/dashboard/admin/events/position/delete/{{ $p->id }}" class="btn btn-danger btn-sm simple-tooltip" data-toggle="tooltip" title="Remove Position"><i class="fas fa-times"></i></a>
+                                            </td>
+                                        @endif
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="3">No positions posted.</td>
+                                </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                    <hr>
                 </div>
             </div>
         </div>
