@@ -81,6 +81,17 @@ View Event
 											  </div>
 											</div>
 									@endif
+									<div class="form-group inline">
+                                    @if($your_registration1)
+										@if($your_registration1->status == 0)
+										<button type="submit" class="btn btn-success">Submit</button>
+                                        <a href="/dashboard/controllers/events/view/{{ $your_registration1->id }}/un-signup" class="btn btn-danger">Delete your Signup</a>
+										@else
+										<a href="/dashboard/controllers/events/view/{{ $your_registration1->id }}/un-signup" class="btn btn-danger">Delete your Signup</a>
+                                    @else
+									    <button type="submit" class="btn btn-success">Submit</button>
+									@endif
+                                </div>
 							@else
                                 @if(Auth::user()->canEvents != 1)
                                     You are not permitted to signup for events.
@@ -95,7 +106,6 @@ View Event
 					</div>
 					</div>
 					</div>
-			
             @if(Auth::user()->can('events'))
                 <div class="card my-3">
                 <a href="#assignPositions" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
