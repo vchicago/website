@@ -59,8 +59,10 @@ View Event
 											   </div>
 											</div>
 											@else
+											<div class="alert alert-primary" role="alert">
 													<p class="text-primary">You have been assigned a position for this event!</p>
 												<hr>
+												<div class="form-group">
                                                 <div class="col-sm-5">
                                                     {!! Form::select('num1', $positions->pluck('name', 'id'), $your_registration1->position_id, ['disabled', 'placeholder' => 'Choice 1', 'class' => 'form-control']) !!}
                                                 </div>
@@ -70,6 +72,8 @@ View Event
                                                 <div class="col-sm-3">
                                                     {!! Form::text('end_time1', $your_registration1->end_time, ['disabled', 'placeholder' => $event->end_time, 'class' => 'form-control']) !!}
                                                 </div>
+												</div>
+											</div>
 											@endif
 									@else
 										{!! Form::hidden('yr1', null) !!}
