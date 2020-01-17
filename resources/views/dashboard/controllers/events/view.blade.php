@@ -36,17 +36,17 @@ View Event
                 </a>
 				  <div class="collapse show" id="signup">
                     <div class="card-body">
-					<p><i>Select your requested position and put the time you're available (time in zulu formatted, 00:00; if you are available for the entire event, you can leave the time blank). Please note that your request may or may not be honored:</i></p>
-                    @if($positions->count() > 0)
-                        {!! Form::open(['action' => 'ControllerDash@signupForEvent']) !!}
+				@if($positions->count() > 0)
+					{!! Form::open(['action' => 'ControllerDash@signupForEvent']) !!}
                             @csrf
                             @if($event->reg == 1 && Auth::user()->canEvents == 1)
-                                {!! Form::hidden('event_id', $event->id) !!}
-                                <div class="form-group">
+								{!! Form::hidden('event_id', $event->id) !!}
                                     @if($your_registration1)
                                         {!! Form::hidden('yr1', $your_registration1->id) !!}
-                                        <div class="row">
                                             @if($your_registration1->status == 0)
+												<p><i>Select your requested position and put the time you're available (time in zulu formatted, 00:00; if you are available for the entire event, you can leave the time blank). Please note that your request may or may not be honored:</i></p>
+											<div class="form-group">
+											  <div class="row">
                                                 <div class="col-sm-5">
                                                     {!! Form::select('num1', $positions->pluck('name', 'id'), $your_registration1->position_id, ['placeholder' => 'Position', 'class' => 'form-control']) !!}
                                                 </div>
@@ -56,41 +56,32 @@ View Event
                                                 <div class="col-sm-3">
                                                     {!! Form::text('end_time1', $your_registration1->end_time, ['placeholder' => $event->end_time, 'class' => 'form-control']) !!}
                                                 </div>
-                                            @else
-												<p class="text-primary">  You have been assigned a position in this event!</p>
+											   </div>
+											</div>
+											@else
+											<div class="alert alert-primary" role="alert">
+													<p class="text-primary">You have been assigned a position in this event!</p>
+												<hr>
+												<p class="text-primary">{{ $your_registration1->position_id }} from {{ $your_registration1->start_time }} to {{ $your_registration1->end_time }}</p>
+											</div>
+											@endif
+									@else
+											<p><i>Select your requested position and put the time you're available (time in zulu formatted, 00:00; if you are available for the entire event, you can leave the time blank). Please note that your request may or may not be honored:</i></p>
+											<div class="form-group">
+											  <div class="row">
                                                 <div class="col-sm-5">
-                                                    {!! Form::select('num1', $positions->pluck('name', 'id'), $your_registration1->position_id, ['disabled', 'placeholder' => 'Choice 1', 'class' => 'form-control']) !!}
+                                                    {!! Form::select('num1', $positions->pluck('name', 'id'), $your_registration1->position_id, ['placeholder' => 'Position', 'class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {!! Form::text('start_time1', $your_registration1->start_time, ['disabled', 'placeholder' => $event->start_time, 'class' => 'form-control']) !!}
+                                                    {!! Form::text('start_time1', $your_registration1->start_time, ['placeholder' => $event->start_time, 'class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="col-sm-3">
-                                                    {!! Form::text('end_time1', $your_registration1->end_time, ['disabled', 'placeholder' => $event->end_time, 'class' => 'form-control']) !!}
+                                                    {!! Form::text('end_time1', $your_registration1->end_time, ['placeholder' => $event->end_time, 'class' => 'form-control']) !!}
                                                 </div>
-                                            @endif
-                                        </div>
-                                    @else
-                                        {!! Form::hidden('yr1', null) !!}
-                                        <div class="row">
-                                            <div class="col-sm-5">
-                                                {!! Form::select('num1', $positions->pluck('name', 'id'), null, ['placeholder' => 'Position', 'class' => 'form-control']) !!}
-                                            </div>
-                                            <div class="col-sm-3">
-                                                {!! Form::text('start_time1', null, ['placeholder' => $event->start_time, 'class' => 'form-control']) !!}
-                                            </div>
-                                            <div class="col-sm-3">
-                                                {!! Form::text('end_time1', null, ['placeholder' => $event->end_time, 'class' => 'form-control']) !!}
-                                            </div>
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="form-group inline">
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                    @if($your_registration1)
-                                        <a href="/dashboard/controllers/events/view/{{ $your_registration1->id }}/un-signup" class="btn btn-danger">Delete your Signup</a>
-                                    @endif
-                                </div>
-                            @else
+											  </div>
+											</div>
+									@endif
+							@else
                                 @if(Auth::user()->canEvents != 1)
                                     You are not permitted to signup for events.
                                 @else
@@ -102,8 +93,9 @@ View Event
                         <p>No positions added.</p>
                     @endif
 					</div>
-				</div>
-				</div>
+					</div>
+					</div>
+			
             @if(Auth::user()->can('events'))
                 <div class="card my-3">
                 <a href="#assignPositions" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
