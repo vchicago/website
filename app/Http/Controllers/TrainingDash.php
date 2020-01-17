@@ -412,7 +412,8 @@ class TrainingDash extends Controller
 
     public function completeOTS(Request $request, $id) {
         $validator = $request->validate([
-            'result' => 'required'
+            'result' => 'required',
+            'ots_report' => 'required'
         ]);
 
         $ots = Ots::find($id);
