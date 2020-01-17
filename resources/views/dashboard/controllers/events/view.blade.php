@@ -88,7 +88,8 @@ View Event
                                         <a href="/dashboard/controllers/events/view/{{ $your_registration1->id }}/un-signup" class="btn btn-danger">Delete your Signup</a>
 										@else
 										<a href="/dashboard/controllers/events/view/{{ $your_registration1->id }}/un-signup" class="btn btn-danger">Delete your Signup</a>
-                                    @else
+										@endif
+									@else
 									    <button type="submit" class="btn btn-success">Submit</button>
 									@endif
                                 </div>
