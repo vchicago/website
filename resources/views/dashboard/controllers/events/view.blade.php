@@ -143,10 +143,10 @@ View Event
                 </div>
             @endif
 			<div class="card">
-                <a href="#assignPositions" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
+                <a href="#signup" class="d-block card-header" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="assignPositions">
                   <h3>Event Signup</h3>
                 </a>
-				  <div class="collapse show" id="assignPositions">
+				  <div class="collapse show" id="signup">
                     <div class="card-body">
 					<p><i>Select your requested position and put the time you're available (time in zulu formatted, 00:00; if you are available for the entire event, you can leave the time blank). Please note that your request may or may not be honored:</i></p>
                     @if($positions->count() > 0)
@@ -212,30 +212,6 @@ View Event
                         {!! Form::close() !!}
                     @else
                         <p>No positions added.</p>
-                    @endif
-                    @if(Auth::user()->can('events'))
-                        <br>
-                        {!! Form::open(['action' => ['AdminDash@addPosition', $event->id]]) !!}
-                            @csrf
-                            <div class="row">
-                                <div class="col-sm-10">
-                                    {!! Form::text('name', null, ['placeholder' => 'New Position', 'class' => 'form-control']) !!}
-                                </div>
-                                <div class="col-sm-2">
-                                    <button type="submit" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Add Position"><i class="fas fa-check"></i></button>
-                                </div>
-                            </div>
-                        {!! Form::close() !!}
-                        <br>
-                        <span data-toggle="modal" data-target="#savePreset">
-                            <button type="button" class="btn btn-primary btn-sm" data-placement="top">Save as Position Preset</button>
-                        </span>
-                        <span data-toggle="modal" data-target="#loadPreset">
-                            <button type="button" class="btn btn-secondary btn-sm" data-placement="top">Load Position Preset</button>
-                        </span>
-                        <span data-toggle="modal" data-target="#removePreset">
-                            <button type="button" class="btn btn-danger btn-sm" data-placement="top">Remove Position Preset</button>
-                        </span>
                     @endif
 					</div>
 				</div>
@@ -316,6 +292,30 @@ View Event
                         </tbody>
                     </table>
                     <hr>
+					                    @if(Auth::user()->can('events'))
+                        <br>
+                        {!! Form::open(['action' => ['AdminDash@addPosition', $event->id]]) !!}
+                            @csrf
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    {!! Form::text('name', null, ['placeholder' => 'New Position', 'class' => 'form-control']) !!}
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="submit" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Add Position"><i class="fas fa-check"></i></button>
+                                </div>
+                            </div>
+                        {!! Form::close() !!}
+                        <br>
+                        <span data-toggle="modal" data-target="#savePreset">
+                            <button type="button" class="btn btn-primary btn-sm" data-placement="top">Save as Position Preset</button>
+                        </span>
+                        <span data-toggle="modal" data-target="#loadPreset">
+                            <button type="button" class="btn btn-secondary btn-sm" data-placement="top">Load Position Preset</button>
+                        </span>
+                        <span data-toggle="modal" data-target="#removePreset">
+                            <button type="button" class="btn btn-danger btn-sm" data-placement="top">Remove Position Preset</button>
+                        </span>
+                    @endif
                 </div>
             </div>
         </div>
@@ -326,6 +326,7 @@ View Event
         <a href="/dashboard/admin/events/edit/{{ $event->id }}" class="btn btn-success">Edit</a>
         <a href="/dashboard/admin/events/delete/{{ $event->id }}" class="btn btn-danger">Delete</a>
     @endif
+	<br>
 
 	@if(Auth::user()->can('events'))
 		<div class="modal fade" id="savePreset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
