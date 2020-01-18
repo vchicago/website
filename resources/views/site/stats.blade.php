@@ -14,8 +14,6 @@ $mname = date("F", mktime(0, 0, 0, $month, 1, $year));
 if ($month == 1) { $pm = 12; $pyr = $year - 1; } else { $pm = $month -1; $pyr = $year; }
 if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr = $year; }
 ?>
-<br>
-<br>
 	<div class="card o-hidden border-0 shadow-lg my-5 rounded">
 		<div class="row no-gutters">
 		<div class="col-md-8">
