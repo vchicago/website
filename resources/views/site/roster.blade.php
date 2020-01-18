@@ -136,7 +136,7 @@ Roster
                      @foreach($vcontrollers as $c)
                         <tr>
                             <td>{{ $c->backwards_name }} - {{ $c->initials }}</td>
-							<td><center>{{ $c->visitor_from }}</center>
+							<td><center>{{ $c->visitor_from }}</center></td>
                             <td><center>{{ $c->rating_short }}</center></td>
                             @if($c->del == 0)
                                 <td><center><i class="fas fa-times" style="color:red"></i></center></td>
