@@ -93,6 +93,7 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                 <thead>
                     <tr>
                         <th scope="col">Name (CID)</th>
+						<th scope="col">Home ARTCC</th>
                         <th scope="col">Rating</th>
                         <th scope="col">Hours This Month</th>
                     </tr>
@@ -101,6 +102,7 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                     @foreach($visit as $c)
                         <tr>
                             <td><a href="/dashboard/admin/roster/edit/{{ $c->id }}">{{ $c->backwards_name }} ({{ $c->id }})</a></td>
+							<td><center>{{ $c->visitor_from }}</center></td>
                             <td>{{ $c->rating_short }}</td>
                             @if($stats[$c->id]->total_hrs >= 3)
                                 <td bgcolor="#A9DFBF" class="black"><b>
