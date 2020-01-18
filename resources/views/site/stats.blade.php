@@ -39,9 +39,6 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
         </div>
     </div>
 	</div>
-
-
-    <hr>
 	<div class="card o-hidden shadow-lg bg-light">
 	<div class="card-body p-0 bg-light mx-2 my-2">
     <div class="row">
