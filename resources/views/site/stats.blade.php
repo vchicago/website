@@ -16,7 +16,7 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
 ?>
 <br>
 <br>
-	<div class="card shadow-lg mb-3 bg-light">
+	<div class="card o-hidden border-0 shadow-lg my-5 rounded">
 		<div class="row no-gutters">
 		<div class="col-md-8">
 		<img src="/photos/skyline2.png" class="card-img px-0 py-0" alt="...">
