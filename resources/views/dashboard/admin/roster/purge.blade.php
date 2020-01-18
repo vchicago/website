@@ -51,8 +51,6 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                         <th scope="col">Rating</th>
                         <th scope="col">Hours This Month</th>
                         <th scope="col">Last Training Session</th>
-                        <th scope="col">Last Activity Date</th>
-                        <th scope="col">Join Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,8 +82,6 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                                     <i>No Recent Training</i>
                                 @endif
                             </td>
-                            <td>{{ $c->last_logon }}</td>
-                            <td>{{ $c->text_date_join }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -99,8 +95,6 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                         <th scope="col">Name (CID)</th>
                         <th scope="col">Rating</th>
                         <th scope="col">Hours This Month</th>
-                        <th scope="col">Last Activity Date</th>
-                        <th scope="col">Join Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -125,8 +119,6 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
                                     @endif
                                 </b></td>
                             @endif
-                            <td>{{ $c->last_logon }}</td>
-                            <td>{{ $c->text_date_create }}</td>
                         </tr>
                     @endforeach
                 </tbody>
