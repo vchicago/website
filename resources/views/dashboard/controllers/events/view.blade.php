@@ -133,7 +133,7 @@ View Event
                                     <button type="button" class="btn btn-success btn-sm pull-right" data-placement="top">Manual Assign</button>
                                 </span>
                         </p>
-                        <table class="table">
+                        <table class="table-responsive-md">
                             <thead>
                             <tr>
 
@@ -247,7 +247,7 @@ View Event
                     </h3>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table-responsive-md">
                         <thead>
                             <tr>
                                 <th scope="col">Position</th>
