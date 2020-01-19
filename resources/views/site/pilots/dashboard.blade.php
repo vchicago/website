@@ -6,7 +6,6 @@ Welcome
 
 @section('content')
 
-  <div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
@@ -48,7 +47,5 @@ Welcome
           </div>
         </div>
       </div>
-    </div>
 
-  </div>
 @endsection
