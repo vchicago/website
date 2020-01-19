@@ -15,7 +15,7 @@ Welcome
     <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="row no-gutters">
           <div class="col-lg-5">
-				<img src="https://i.picsum.photos/id/1063/600/250.jpg" class="card-img img-fluid">
+				<img src="https://i.picsum.photos/id/1063/600/400.jpg" class="card-img img-fluid">
 		  </div>
           <div class="col-lg-7">
             <div class="p-5">
