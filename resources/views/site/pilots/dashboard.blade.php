@@ -7,12 +7,12 @@ Welcome
 @section('content')
 <div class="shadow-lg p-3 mb-5 bg-primary rounded">
 	<div class="text-center">
-		<img src="https://i.picsum.photos/id/1063/1200/250.jpg" class="rounded" alt="...">
+		<img src="https://picsum.photos/1200/250" class="rounded" alt="...">
 	</div>
 </div>
 <div class="shadow-lg p-3 mb-5 bg-primary rounded">
 	<div class="text-center">
-		<img src="https://i.picsum.photos/id/1063/1200/250.jpg" class="rounded" alt="...">
+		<img src="https://picsum.photos/1200/250" class="rounded" alt="...">
 	</div>
 </div>
 
