@@ -13,10 +13,10 @@ Welcome
 		<img src="https://picsum.photos/1200/250?blur" class="img-responsive rounded shadow-lg" width="100%" alt="...">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
-      <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-landing-image"></div>
+        <div class="row no-gutters">
+          <div class="col-lg-5">
+				<img src="https://i.picsum.photos/id/1063/600/250.jpg" class="card-img img-fluid">
+		  </div>
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
