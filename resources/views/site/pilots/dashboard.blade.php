@@ -19,10 +19,6 @@ Welcome
 		  </div>
           <div class="col-lg-7">
             <div class="p-5">
-				<div class="text-center">
-				<br>
-					<h1 class="h4 text-gray-900 mb-4">vZAU Chicago ARTCC</h1>
-				<br>
 				</div>
               </div>
             </div>
