@@ -23,7 +23,7 @@ Welcome
 					Airport Charts & Weather
 				</h3>
 			            {!! Form::open(['action' => 'FrontController@searchAirport']) !!}
-                <div class="form-inline">
+                <div class="form-inline mx-auto">
                     {!! Form::text('apt', null, ['placeholder' => 'Search Airport (ICAO)', 'class' => 'form-control']) !!}
                     &nbsp;
                     <button class="btn btn-success" type="submit">Search</button>
