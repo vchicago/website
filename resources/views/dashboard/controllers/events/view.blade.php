@@ -167,7 +167,9 @@ View Event
                                         <td>
 											<center>
 												<span data-toggle="modal" data-target="#addrequest{{ $r->id }}">
+
 													<button type="button" class="btn btn-success btn-sm btn-simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign controller a position - May be different than requested"><i class="fas fa-check"></i></button>
+
 												</span>
 											</center>
                                         </td>
