@@ -14,9 +14,7 @@ $mname = date("F", mktime(0, 0, 0, $month, 1, $year));
 if ($month == 1) { $pm = 12; $pyr = $year - 1; } else { $pm = $month -1; $pyr = $year; }
 if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr = $year; }
 ?>
-<br>
-<br>
-	<div class="card shadow-lg mb-3 bg-light">
+	<div class="card o-hidden border-0 shadow-lg my-5 rounded">
 		<div class="row no-gutters">
 		<div class="col-md-8">
 		<img src="/photos/skyline2.png" class="card-img px-0 py-0" alt="...">
@@ -41,9 +39,6 @@ if ($month == 12) { $nm = 1; $nyr = $year + 1; } else { $nm = $month + 1; $nyr =
         </div>
     </div>
 	</div>
-
-
-    <hr>
 	<div class="card o-hidden shadow-lg bg-light">
 	<div class="card-body p-0 bg-light mx-2 my-2">
     <div class="row">

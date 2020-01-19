@@ -130,10 +130,10 @@ View Event
                         <p>
                             <i>Assign Positions:</i>
                             <span class="float-right" data-toggle="modal" data-target="#manualAssign">
-                                    <button type="button" class="btn btn-success btn-sm pull-right" data-placement="top">Manual Assign</button>
+                                    <button type="button" class="btn btn-success btn-sm pull-right btn-simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign positions to controllers who have NOT signed up for any positions">Manual Assign</button>
                                 </span>
                         </p>
-                        <table class="table">
+                        <table class="table table-responsive-lg">
                             <thead>
                             <tr>
 
@@ -167,7 +167,9 @@ View Event
                                         <td>
 											<center>
 												<span data-toggle="modal" data-target="#addrequest{{ $r->id }}">
-													<button type="button" class="btn btn-success btn-sm simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign Position"><i class="fas fa-check"></i></button>
+
+													<button type="button" class="btn btn-success btn-sm btn-simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign controller a position - May be different than requested"><i class="fas fa-check"></i></button>
+
 												</span>
 											</center>
                                         </td>
@@ -247,7 +249,7 @@ View Event
                     </h3>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-responsive-lg">
                         <thead>
                             <tr>
                                 <th scope="col">Position</th>
