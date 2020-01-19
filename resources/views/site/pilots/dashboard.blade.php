@@ -12,7 +12,7 @@ Welcome
 
 		<img src="https://picsum.photos/1201/251?blur" class="img-responsive rounded shadow-lg" width="100%" alt="...">
 
-    <div class="card o-hidden border-0 shadow-lg my-3">
+    <div class="card o-hidden border-0 shadow-lg my-4">
         <div class="row no-gutters">
           <div class="col-lg-7">
 				<img src="https://picsum.photos/800/250?blur" class="card-img img-fluid">
