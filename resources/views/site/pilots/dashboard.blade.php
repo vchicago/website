@@ -19,9 +19,9 @@ Welcome
 		  </div>
           <div class="col-lg-5">
             <div class="p-5 text-center">
-				<h3 class="text-primary">
+				<h4 class="text-primary">
 					Airport Charts & Weather
-				</h3>
+				</h4>
 			            {!! Form::open(['action' => 'FrontController@searchAirport']) !!}
                 <div class="form-inline justify-content-center">
                     {!! Form::text('apt', null, ['placeholder' => 'Search Airport (ICAO)', 'class' => 'form-control']) !!}
