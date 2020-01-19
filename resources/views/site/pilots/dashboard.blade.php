@@ -5,16 +5,11 @@ Welcome
 @endsection
 
 @section('content')
-<div class="shadow-lg p-3 mb-5 bg-primary rounded">
-	<div class="text-center">
-		<img src="https://picsum.photos/1200/250" class="rounded" alt="...">
-	</div>
-</div>
-<div class="shadow-lg p-3 mb-5 bg-primary rounded">
-	<div class="text-center">
-		<img src="https://picsum.photos/1200/250" class="rounded" alt="...">
-	</div>
-</div>
+		<img src="https://picsum.photos/1200/250" class="img-responsive rounded shadow-lg" alt="...">
+<br>
+<br>
+
+		<img src="https://picsum.photos/1200/250" class="img-responsive rounded shadow-lg" alt="...">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
