@@ -20,7 +20,7 @@ Staff
                     {{ $s->full_name }}
                 @endforeach
             @endif
-            &nbsp;<a href="{{ 'mailto:atm@'.\Config::get('facility.email') }}" style="color:black"><i class="fa fa-envelope" ></i></a>
+            &nbsp;<a href="{{ 'mailto:atm@'.\Config::get('facility.email') }}" class="text-primary"><i class="fa fa-envelope" ></i></a>
 			</h4>
         <p>The Air Traffic Manager is responsible to the VATUSA Northeastern Region Director for the overall administration of the ARTCC. The ATM is responsible for appointing ARTCC staff members and delegation of authorities.</p>
     <hr>
@@ -33,7 +33,7 @@ Staff
                     {{ $s->full_name }}
                 @endforeach
             @endif
-            &nbsp;<a href="{{ 'mailto:datm@'.\Config::get('facility.email') }}" style="color:black"><i class="fa fa-envelope" ></i></a>
+            &nbsp;<a href="{{ 'mailto:datm@'.\Config::get('facility.email') }}" class="text-primary"><i class="fa fa-envelope rotate-n-15"></i></a>
         </h4>
         <p>The Deputy Air Traffic Manager reports to the Air Traffic Manager and acts as Air Traffic Manager in their absence. The Deputy Air Traffic Manager is jointly responsible for administration and accuracy of the roster including visiting controllers.</p>
     <hr>
@@ -46,7 +46,7 @@ Staff
                     {{ $s->full_name }}
                 @endforeach
             @endif
-            &nbsp;<a href="{{ 'mailto:ta@'.\Config::get('facility.email') }}" style="color:black"><i class="fa fa-envelope" ></i></a>
+            &nbsp;<a href="{{ 'mailto:ta@'.\Config::get('facility.email') }}" class="text-primary"><i class="fa fa-envelope rotate-n-15"></i></a>
         </h4>
         <p>The Training Administrator works with the Air Traffic Manager and Deputy Air Traffic Manager to build training programs, establish training procedures and recommend instructors and mentors. The Training Administrator works with Instructors and Mentors to develop knowledge and mentors to help develop teaching ability.</p>
     <hr>
@@ -72,7 +72,7 @@ Staff
                     {{ $s->full_name }}
                 @endforeach
             @endif
-            &nbsp;<a href="{{ 'mailto:wm@'.\Config::get('facility.email') }}" style="color:black"><i class="fa fa-envelope" ></i></a>
+            &nbsp;<a href="{{ 'mailto:wm@'.\Config::get('facility.email') }}" class="text-primary"><i class="fa fa-envelope rotate-n-15" ></i></a>
         </h4>
         <p>Responsible to the Air Traffic Manager for the operation and maintenance of all IT services including, but not limited to, the Website, Discord, and Email services and any other tasking as directed.</p>
     <hr>
@@ -98,7 +98,7 @@ Staff
                     {{ $s->full_name }}
                 @endforeach
             @endif
-            &nbsp;<a href="{{ 'mailto:ec@'.\Config::get('facility.email') }}" style="color:black"><i class="fa fa-envelope" ></i></a>
+            &nbsp;<a href="{{ 'mailto:ec@'.\Config::get('facility.email') }}" class="text-primary"><i class="fa fa-envelope rotate-n-15"></i></a>
 			</h4>
         <p>The Events Coordinator is responsible to the Deputy Air Traffic Manager for the coordination, planning, dissemination and creation of events to neighboring facilities, virtual airlines, VATUSA and VATSIM.</p>
     <hr>
@@ -124,7 +124,7 @@ Staff
                     {{ $s->full_name }}
                 @endforeach
             @endif
-            &nbsp;<a href="{{ 'mailto:fe@'.\Config::get('facility.email') }}" style="color:black"><i class="fa fa-envelope" ></i></a>
+            &nbsp;<a href="{{ 'mailto:fe@'.\Config::get('facility.email') }}" class="text-primary"><i class="fa fa-envelope rotate-n-15"></i></a>
         </h4>
         <p>The Facility Engineer is responsible to the Senior Staff for creation of sector files, radar client files, training scenarios, Letters of Agreement, Memorandums of Understanding, Standard Operating Procedures and other requests as directed and submission to the Air Traffic Manager for approval prior to dissemination.</p>
     <hr>
