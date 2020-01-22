@@ -109,8 +109,8 @@ class FrontController extends Controller
 								->with('kord', $kord);
     }
 
-    public function teamspeak() {
-        return view('site.teamspeak');
+    public function privacypolicy() {
+        return view('site.privacypolicy');
     }
 
     public function airportIndex() {
