@@ -18,7 +18,7 @@ Profile
             <p><b>CID:</b> {{ Auth::id() }}</p>
             <p><b>Name:</b> {{ Auth::user()->full_name }}</p>
             <p><b>Rating:</b> {{ Auth::user()->rating_long }}</p>
-            <p><b>Email:</b> {{ Auth::user()->email }} <a style="color:inherit" href="https://cert.vatsim.net/vatsimnet/newmail.php" target="_blank" data-toggle="tooltip" title="Click Here to Update (It may take up to an hour for changes to be reflected)"><i class="fas fa-info-circle"></i></a></p>
+            <p><b>Email:</b> {{ Auth::user()->email }} <a href="https://cert.vatsim.net/vatsimnet/newmail.php" style="color:inherit" target="_blank" data-toggle="tooltip" title="Click Here to Update (It may take up to an hour for changes to be reflected)"><i class="fas fa-info-circle"></i></a></p>
 			Receive Broadcast Emails?
                 &nbsp;
                 @if(Auth::user()->opt == 1)
@@ -37,53 +37,54 @@ Profile
                     </span>
                 @endif
 
-	   <div class="modal fade" id="Opt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Opt Into Broadcast Emails?</h5>
-            </div>
-            <br>
-            <div class="container">
-                <p>Opting into emails will only affect the recieving of mass emails. If you elect to opt into emails, you agree to recieve mass emails sent to groups of members of the vZAU ARTCC. This selection will not affect the reception of personalized emails (both automated and issued by staff) for example, training ticket emails. If you have any questions, please contact the ATM at <a href="mailto:atm@vzauartcc.org">atm@vzauartcc.org</a>.</p>
-                <p>You may opt out at any time by using the slider shown here on your controller profile.</p>
-                <br>
-                <i>Please check the following check boxes if you would like to continue.</i>
-                <hr>
-                {!! Form::open(['action' => 'ControllerDash@optIn']) !!}
-                    <div class="form-group">
-                        {!! Form::checkbox('opt', '1', false) !!}
-                        {!! Form::label('opt', 'I agree to recieve mass emails from the v'.\Config::get('facility.name_short').' ARTCC.', ['class' => 'form-label']) !!}
-                        <br>
-                        {!! Form::checkbox('privacy', '1', false) !!}
-                        {!! Form::label('privacy', 'I have read and agree to the v'.\Config::get('facility.name_short').' ARTCC Privacy Policy.', ['class' => 'form-label']) !!}
+                <div class="modal fade" id="unOpt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Opt Out of Broadcast Emails?</h5>
+                            </div>
+                            <br>
+                            <div class="container">
+                                <p>Please note that opting out of broadcast emails will only prevent you from receiving broadcast emails issued from staff. Personalized emails (both automated and issued by staff) will not be affected. If you have any questions, please contact the ATM at <a href="mailto:atm@chicagoartcc.org">atm@chicagoartcc.org</a>.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ url()->current() }}" class="btn btn-secondary">Close</a>
+                                <a href="/dashboard/opt/out" class="btn btn-success">Confirm Selection</a>
+                            </div>
+                        </div>
                     </div>
-            </div>
-            <div class="modal-footer">
-                <a href="{{ url()->current() }}" class="btn btn-secondary">Close</a>
-                <button type="submit" class="btn btn-success">Confirm Selection</button>
-                {!! Form::close() !!}
-            </div>
-        </div>
-    </div>
-	</div>
-  <div class="modal fade" id="unOpt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Opt Out of Broadcast Emails?</h5>
-            </div>
-            <br>
-            <div class="container">
-                <p>Please note that opting out of broadcast emails will only prevent you from receiving broadcast emails issued from staff. Personalized emails (both automated and issued by staff) will not be affected. If you have any questions, please contact the ATM at <a href="mailto:atm@ztlartcc.org">atm@ztlartcc.org</a>.</p>
-            </div>
-            <div class="modal-footer">
-                <a href="{{ url()->current() }}" class="btn btn-secondary">Close</a>
-                <a href="/dashboard/opt/out" class="btn btn-success">Confirm Selection</a>
-            </div>
-        </div>
-    </div>
-</div>
+                </div>
+
+                <div class="modal fade" id="Opt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Opt Into Broadcast Emails?</h5>
+                            </div>
+                            <br>
+                            <div class="container">
+                                <p>Opting into emails will only affect the recieving of mass emails. If you elect to opt into emails, you agree to recieve mass emails sent to groups of members of the vZAU ARTCC. This selection will not affect the reception of personalized emails (both automated and issued by staff) for example, training ticket emails. If you have any questions, please contact the ATM at <a href="mailto:atm@chicagoartcc.org">atm@chicagoartcc.org</a>.</p>
+                                <p>You may opt out at any time by using the slider shown at the top of the controller dashboard at all times.</p>
+                                <br>
+                                <i>Please check the following check boxes if you would like to continue.</i>
+                                <hr>
+                                {!! Form::open(['action' => 'ControllerDash@optIn']) !!}
+                                    <div class="form-group">
+                                        {!! Form::checkbox('opt', '1', false) !!}
+                                        {!! Form::label('opt', 'I agree to recieve mass emails from the vZAU ARTCC.', ['class' => 'form-label']) !!}
+                                        <br>
+                                        {!! Form::checkbox('privacy', '1', false) !!}
+                                        {!! Form::label('privacy', 'I have read and agree to ZAU ARTCC <a style="color:inherit" target="_blank" href="/privacypolicy">Privacy Policy</a>.', ['class' => 'form-label']) !!}
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ url()->current() }}" class="btn btn-secondary">Close</a>
+                                <button type="submit" class="btn btn-success">Confirm Selection</button>
+                                {!! Form::close() !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>>
 	</div>
 
         <div class="col-sm-6">
