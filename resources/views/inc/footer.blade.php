@@ -2,7 +2,7 @@
 	      <!-- Footer -->
       <footer class="page-footer font-small">
           <div class="copyright text-center py-3 text-white">
-            <span><p><i>For entertainment purposes only. Do not use for real world purposes. Part of the <a href="http://vatsim.net" class="text-white">VATSIM</a> Network.</i></p></span>
+            <span><p><i>For entertainment purposes only. Do not use for real world purposes. Part of the <a href="http://vatsim.net" class="text-white">VATSIM</a> Network. Our Privacy Policy is located <a href="/privacypolicy" class="text-white">here</a>.</i></p></span>
 			        @if(Carbon\Carbon::now()->month == 12)
 			<br>
             <button class="btn btn-secondary btn-sm" onclick="snowStorm.stop();return false">Stop Snow</button>
