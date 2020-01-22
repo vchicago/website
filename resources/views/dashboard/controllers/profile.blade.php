@@ -36,7 +36,7 @@ Profile
                         </label>
                     </span>
                 @endif
-	   
+
 	   <div class="modal fade" id="Opt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -67,6 +67,23 @@ Profile
         </div>
     </div>
 	</div>
+  <div class="modal fade" id="unOpt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Opt Out of Broadcast Emails?</h5>
+            </div>
+            <br>
+            <div class="container">
+                <p>Please note that opting out of broadcast emails will only prevent you from receiving broadcast emails issued from staff. Personalized emails (both automated and issued by staff) will not be affected. If you have any questions, please contact the ATM at <a href="mailto:atm@ztlartcc.org">atm@ztlartcc.org</a>.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ url()->current() }}" class="btn btn-secondary">Close</a>
+                <a href="/dashboard/opt/out" class="btn btn-success">Confirm Selection</a>
+            </div>
+        </div>
+    </div>
+</div>
 	</div>
 
         <div class="col-sm-6">
@@ -81,7 +98,7 @@ Profile
                             </li>
                         @else
                             <li class="list-group-item bg-success">
-                                <h5>Hours this Month:</h5>
+                                <h5 class="text-light">Hours this Month:</h5>
                                 <p class="text-light"><b>{{ $personal_stats->total_hrs }}</b></p>
                             </li>
                         @endif
@@ -178,4 +195,66 @@ Profile
     </div>
 </div>
 <br>
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: lightgreen;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
 @endsection
