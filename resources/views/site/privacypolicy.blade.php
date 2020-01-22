@@ -9,12 +9,11 @@ Privacy Policy
 		<div class="block-heading-two">
 			<div class="card-body">
 <h2 class="card-title text-primary text-center">PRIVACY POLICY</h2>
-<br>
 <p class="text-xs text-center">Last updated January 21, 2020</p>
 <br>
 
 
-<p>Thank you for choosing to be part of our community at Virtual Chicago ARTCC (“Company”, “we”, “us”, or “our”). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <a class="text-white" href="mailto:atm@chicagoartcc.org" target="_blank">atm@chicagoartcc.org.</a></p>
+<p>Thank you for choosing to be part of our community at Virtual Chicago ARTCC (“Company”, “we”, “us”, or “our”). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us at <a style="color:inherit" href="mailto:atm@chicagoartcc.org" target="_blank">atm@chicagoartcc.org.</a></p>
 
 <p>When you visit our website chicagoartcc.org, and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy policy, we seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services.</p>
 
@@ -160,7 +159,7 @@ More specifically, we may need to process your data or share your personal infor
 
 <p>If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <a class="text-white" href="http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm" target="_blank">http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.</a></p>
 
-<p>If you have questions or comments about your privacy rights, you may email us at <a class="text-white" href="mailto:atm@chicagoartcc.org" target="_blank">atm@chicagoartcc.org.</a>
+<p>If you have questions or comments about your privacy rights, you may email us at <a style="color:inherit" href="mailto:atm@chicagoartcc.org" target="_blank">atm@chicagoartcc.org.</a>
 
 
 <p>Account Information
@@ -204,7 +203,7 @@ More specifically, we may need to process your data or share your personal infor
 
 <h5>12. HOW CAN YOU CONTACT US ABOUT THIS POLICY?</h5>
 
-<p>If you have questions or comments about this policy, you may email us at <a class="text-white" href="mailto:atm@chicagoartcc.org" target="_blank">atm@chicagoartcc.org.</a></p>
+<p>If you have questions or comments about this policy, you may email us at <a style="color:inherit" href="mailto:atm@chicagoartcc.org" target="_blank">atm@chicagoartcc.org.</a></p>
 			</div>
 		</div>
 	</div>
