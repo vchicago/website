@@ -23,7 +23,7 @@ Privacy Policy
 
 
 
-<h5>TABLE OF CONTENTS</h5>
+<h4><u>TABLE OF CONTENTS</u></h4>
 
 <ol>
 
@@ -149,7 +149,7 @@ More specifically, we may need to process your data or share your personal infor
 
 
 
-7. WHAT ARE YOUR PRIVACY RIGHTS?
+<h5>7. WHAT ARE YOUR PRIVACY RIGHTS?</h5>
 
 <p>In Short:  In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.
 
