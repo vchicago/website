@@ -1,16 +1,16 @@
 @extends('layouts.landing')
 
 @section('title')
-Staff
+Privacy Policy
 @endsection
 
 @section('content')
 	<div class="card o-hidden border-0 shadow-lg my-5">
 		<div class="block-heading-two">
 			<div class="card-body">
-<h2 class="card-title text-primary">PRIVACY POLICY</h2>
+<h2 class="card-title text-primary text-center">PRIVACY POLICY</h2>
 <br>
-Last updated January 21, 2020
+<p class="text-xs text-center">Last updated January 21, 2020</p>
 <br>
 
 
