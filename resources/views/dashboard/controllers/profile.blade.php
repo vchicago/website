@@ -66,6 +66,7 @@ Profile
                                 <p>Opting into emails will only affect the recieving of mass emails. If you elect to opt into emails, you agree to recieve mass emails sent to groups of members of the vZAU ARTCC. This selection will not affect the reception of personalized emails (both automated and issued by staff) for example, training ticket emails. If you have any questions, please contact the ATM at <a href="mailto:atm@chicagoartcc.org">atm@chicagoartcc.org</a>.</p>
                                 <p>You may opt out at any time by using the slider shown at the top of the controller dashboard at all times.</p>
                                 <br>
+                                <p>Our privacy policy is located <a style="color:inherit" target="_blank" href="/privacypolicy">here</a></p>
                                 <i>Please check the following check boxes if you would like to continue.</i>
                                 <hr>
                                 {!! Form::open(['action' => 'ControllerDash@optIn']) !!}
@@ -74,7 +75,7 @@ Profile
                                         {!! Form::label('opt', 'I agree to recieve mass emails from the vZAU ARTCC.', ['class' => 'form-label']) !!}
                                         <br>
                                         {!! Form::checkbox('privacy', '1', false) !!}
-                                        {!! Form::label('privacy', 'I have read and agree to ZAU ARTCC <a style="color:inherit" target="_blank" href="/privacypolicy">Privacy Policy</a>.', ['class' => 'form-label']) !!}
+                                        {!! Form::label('privacy', 'I have read and agree to ZAU ARTCC Privacy Policy.', ['class' => 'form-label']) !!}
                                     </div>
                             </div>
                             <div class="modal-footer">
@@ -84,7 +85,7 @@ Profile
                             </div>
                         </div>
                     </div>
-                </div>>
+                </div>
 	</div>
 
         <div class="col-sm-6">
