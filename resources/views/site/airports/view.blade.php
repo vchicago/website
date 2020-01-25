@@ -5,12 +5,9 @@ View Airport ({{ $airport->ltr_4 }})
 @endsection
 
 @section('content')
-    <div class="container">
-	<br>
-        <h2 class="text-gray-200">{{ $airport->name }} ({{ $airport->ltr_3 }})</h2>
-    </div>
 <br>
-<div class="container">
+        <h2 class="text-gray-200">{{ $airport->name }} ({{ $airport->ltr_3 }})</h2>
+<br>
     <div class="row">
         <div class="col-sm-6">
             <div class="card bg-light">
@@ -200,7 +197,6 @@ View Airport ({{ $airport->ltr_4 }})
         </div>
     </div>
     <br>
-</div>
 
 <style>
     .collapsible {
