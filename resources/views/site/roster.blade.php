@@ -20,7 +20,7 @@ Roster
 		<li class="nav-item">
             <a class="nav-link" href="#loa" role="tab" data-toggle="tab" style="color:black">LOA Controllers</a>
         </li>
-		@else
+		@endif
     </ul>
         <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">
