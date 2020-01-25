@@ -50,7 +50,7 @@ Visitor Application
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('reason', 'Explanation of Why You Want to Visit the '.\Config::get('facility.name_short').' ARTCC') !!}
+            {!! Form::label('reason', 'Explanation of Why You Want to Visit '.\Config::get('facility.name_short').' ARTCC') !!}
             {!! Form::textArea('reason', null, ['placeholder' => 'Required', 'class' => 'form-control']) !!}
         </div>
 		<div class="g-recaptcha" data-sitekey="6Lf0BcgUAAAAAIj7fnd58WCsh_Fo5J2y4MXKv6x1"></div>
