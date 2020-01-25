@@ -16,7 +16,7 @@ Roster
         <li class="nav-item">
             <a class="nav-link" href="#visit" role="tab" data-toggle="tab" style="color:black">Visiting Controllers</a>
         </li>
-		@if(count($loacontrollers) == 0) 
+		@if(count($loacontrollers) > 0) 
 		<li class="nav-item">
             <a class="nav-link" href="#loa" role="tab" data-toggle="tab" style="color:black">LOA Controllers</a>
         </li>
