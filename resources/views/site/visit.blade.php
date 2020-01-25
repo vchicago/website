@@ -5,7 +5,6 @@ Visitor Application
 @endsection
 
 @section('content')
-<div class="container">
 	<div class="card shadow-lg my-5 bg-light">
 		<div class="card-body p-0 bg-light text-center mb-2 mx-2">
 			<h2 class="h2 mb-4 mt-4">Visit vZAU ARTCC</h2>
@@ -60,5 +59,4 @@ Visitor Application
     {!! Form::close() !!}
 	</div>
 	</div>
-</div>
 @endsection
