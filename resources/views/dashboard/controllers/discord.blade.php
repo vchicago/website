@@ -29,7 +29,7 @@ Discord
 			  <div class="col-sm-12 mb-4">
 					<widgetbot
 					server="485491681903247361"
-					channel="485495655616348189"
+					channel="485491681903247363"
 					width="100%"
 					height="600"
 					shard="https://disweb.dashflo.net"
