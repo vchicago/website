@@ -9,7 +9,7 @@
                 <tr>
                   <td class="content-block">
                     <span class="apple-link">
-					<p class="text-muted"><small><center>Automated from vZAU ARTCC issued on the behalf of {{ $sender->full_name }}.</center></small></p>
+					<font color="grey"><small><center>Automated from vZAU ARTCC issued on the behalf of {{ $sender->full_name }}.</center></small></font>
                   </td>
                 </tr>
               </table>
