@@ -56,12 +56,12 @@ Visitor Application
 		<div class="g-recaptcha" data-sitekey="6Lf0BcgUAAAAAIj7fnd58WCsh_Fo5J2y4MXKv6x1"></div>
         <br>
 		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#visitAgree">
 		Submit
 		</button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="visitAgree" tabindex="-1" role="dialog" aria-labelledby="VisitorAgreement" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
