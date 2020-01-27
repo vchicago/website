@@ -55,7 +55,31 @@ Visitor Application
         </div>
 		<div class="g-recaptcha" data-sitekey="6Lf0BcgUAAAAAIj7fnd58WCsh_Fo5J2y4MXKv6x1"></div>
         <br>
-        <button class="btn btn-success" type="submit">Submit</button>
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+		Submit
+		</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Required Hours</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Visitors at ZAU are required to control on the network for a minimum of three (3) hours per calendar month.
+		Failure to meet the requirements may result in removal from the roster. By clicking 'Submit', you agree to this policy.
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     {!! Form::close() !!}
 	</div>
 	</div>
