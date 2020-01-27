@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container bg-light">
     @if(count($errors) > 0)
         <br>
         <div class="alert alert-danger">

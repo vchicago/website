@@ -92,6 +92,7 @@ table.table-fit tbody td, table.table-fit tfoot td {
 </style>
 </head>
 <body class="bg-gradient-primary" id="page-top">
+		@include('inc.messages')
         @include('inc.navbar')
 		<div class="container">
 					@yield('content')
