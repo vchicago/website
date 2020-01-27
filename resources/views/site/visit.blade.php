@@ -75,7 +75,7 @@ Visitor Application
 		Failure to meet the requirements may result in removal from the roster. By clicking 'Submit', you agree to this policy.
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Save changes</button>
+        <button type="submit" class="btn btn-success">Submit</button>
       </div>
     </div>
   </div>
