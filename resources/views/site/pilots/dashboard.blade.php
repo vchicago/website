@@ -9,9 +9,9 @@ Welcome
 		<img src="https://picsum.photos/1200/250?blur" class="img-responsive rounded shadow-lg" width="100%" alt="...">
 <br>
 <br>
-
+	<a href="https://pirep.chicagoartcc.org/">
 		<img src="https://picsum.photos/1201/251?blur" class="img-responsive rounded shadow-lg" width="100%" alt="...">
-
+	</a>
     <div class="card o-hidden border-0 shadow-lg my-4">
         <div class="row no-gutters">
           <div class="col-lg-7">
