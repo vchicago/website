@@ -35,7 +35,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('Weather:UpdateWeather')->everyFiveMinutes();
         $schedule->command('OnlineControllers:GetControllers')->everyMinute();
         $schedule->command('Event:SendEventReminder')->dailyAt('00:30')->timezone('America/Chicago');
-        $schedule->command('RosterRemoval:Warning')->monthlyOn('5', '00:30');
+        $schedule->command('RosterRemoval:Warning')->monthlyOn('20', '00:30');->timezone('America/Chicago');
     }
 
     /**
