@@ -41,7 +41,7 @@ New Calendar Event/News
             {!! Form::label('type', 'Type of Post') !!}
             {!! Form::select('type', [
                 1 => 'News'
-            ], null, ['class' => 'form-control']) !!}
+            ], null, ['class' => 'form-control', 'disabled']) !!}
         </div>
         <div class="row">
             <div class="col-sm-1">
