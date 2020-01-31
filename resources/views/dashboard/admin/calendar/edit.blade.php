@@ -37,12 +37,6 @@ Edit Calendar Event/News
         {!! Form::label('body', 'Additional Information') !!}
         {!! Form::textArea('body', $calendar->body, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Required']) !!}
     </div>
-    <div class="form-group">
-        {!! Form::label('type', 'Type of Post') !!}
-        {!! Form::select('type', [
-            1 => 'News'
-        ], $calendar->type, ['class' => 'form-control']) !!}
-    </div>
     <div class="row">
         <div class="col-sm-1">
             <button class="btn btn-success" type="submit">Submit</button>
