@@ -839,7 +839,7 @@ class AdminDash extends Controller
         $audit = new Audit;
         $audit->cid = Auth::id();
         $audit->ip = $_SERVER['REMOTE_ADDR'];
-        $audit->what = Auth::user()->full_name.' added a new calendar or news event.';
+        $audit->what = Auth::user()->full_name.' added a news event.';
         $audit->save();
 
         return redirect('/dashboard/admin/calendar')->with('success', 'The news posting has been created.');
@@ -872,7 +872,7 @@ class AdminDash extends Controller
         $audit = new Audit;
         $audit->cid = Auth::id();
         $audit->ip = $_SERVER['REMOTE_ADDR'];
-        $audit->what = Auth::user()->full_name.' edited the calendar event '.$calendar->title.'.';
+        $audit->what = Auth::user()->full_name.' edited the news event '.$calendar->title.'.';
         $audit->save();
 
         return redirect('/dashboard/admin/calendar')->with('success', 'The news posting has been edited.');
