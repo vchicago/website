@@ -832,7 +832,7 @@ class AdminDash extends Controller
         $calendar->date = Input::get('date');
         $calendar->time = Input::get('time');
         $calendar->body = Input::get('body');
-        $calendar->type = 2;
+        $calendar->type = 1;
         $calendar->created_by = Auth::id();
         $calendar->save();
 
@@ -865,7 +865,7 @@ class AdminDash extends Controller
         $calendar->date = Input::get('date');
         $calendar->time = Input::get('time');
         $calendar->body = Input::get('body');
-        $calendar->type = 2;
+        $calendar->type = 1;
         $calendar->updated_by = Auth::id();
         $calendar->save();
 
