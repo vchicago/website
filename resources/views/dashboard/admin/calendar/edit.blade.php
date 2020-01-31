@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Edit Calendar Event/News
+Edit News Posting
 @endsection
 
 @section('content')
