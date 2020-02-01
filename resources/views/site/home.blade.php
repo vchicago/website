@@ -14,22 +14,7 @@ Welcome
           <div class="col-lg-6">
 			<div class="card-body p-4">
               <div class="text-center">
-			          @if(Carbon\Carbon::now()->month == 12)
-				  	@if(Carbon\Carbon::now()->day <= 27)
-						<img src="/photos/xmas_logo.png" class="img-fluid" alt="ZAU Logo">
-					  @else
-						<img src="/photos/ny_logo.png" class="img-fluid" alt="ZAU Logo">
-					  @endif
-				   @elseif(Carbon\Carbon::now()->month == 1)
-				   	@if(Carbon\Carbon::now()->day <= 2)
-						<img src="/photos/ny_logo.png" class="img-fluid" alt="ZAU Logo">
-					  @else
-						<img src="/photos/logo.png" class="img-fluid" alt="ZAU Logo">
-					  @endif
-				   @else
-				   <img src="/photos/ny_logo.png" class="img-fluid" alt="ZAU Logo">
-				   @endif
-				    
+				    <img src="/photos/logo.png" class="img-fluid" alt="ZAU Logo">
 				</div>
 					<hr>
 						<p>Virtual Chicago ARTCC provides air traffic control services for the Chicago Metro area, Northwestern Indiana, Central Illinois, Eastern Iowa, Southern Wisconsin, and Southwestern Michgan. Our goal is to provide the most realistic experience to our pilots, while maintaining professionalism and courtesy. Chicago offers a wealth of difference for new controllers, and will proivde a good challenge for any aspiring controllers. Join our family today!</p>
