@@ -43,7 +43,7 @@ Files
         <li class="nav-item">
             <a class="nav-link bg-primary text-gray-200" href="#misc" role="tab" data-toggle="tab">Miscellaneous</a>
         </li>
-        @if(Auth::user()->can('staff'))
+        @if(Auth::user()->can('staff') || Auth::user()->can('train'))
             <li class="nav-item">
                 <a class="nav-link bg-primary text-gray-200" href="#staff" role="tab" data-toggle="tab">Staff</a>
             </li>
