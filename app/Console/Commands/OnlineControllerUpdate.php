@@ -30,7 +30,7 @@ class OnlineControllerUpdate extends Command
     protected $statusUrl = "http://status.vatsim.net/status.txt";
 
     protected $facilities = [
-	'ZAU','ORD','CHI','SBN','RFD','PIA','MSN','MKG','MLI','MKE','GRR','FWA','CMI','CID','AZO','ALO','EKM','MDW','LAF','BTL'
+	'ZAU','ORD','CHI','SBN','RFD','PIA','MSN','MKG','MLI','MKE','GRR','FWA','CMI','CID','AZO','ALO','EKM','MDW','LAF','BTL', 'OSH'
 	];
 
     /**
