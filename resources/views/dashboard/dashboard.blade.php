@@ -218,7 +218,7 @@ let flightsLoading = true;
 function updateControllers() {
     $.get("https://api.vzau.cloud/v1/live/controllers/ZAU").done((data) => {
         atcLoading = false;
-        if (typeof data == "object" && data.length == 0) {
+        if (typeof data == "object" && data.length > 0) {
             atc = data
         } else {
             atc = [];
@@ -229,7 +229,7 @@ function updateControllers() {
     });
     $.get("https://api.vzau.cloud/v1/live/flights/ZAU").done((data) => {
         flightsLoading = false;
-        if (typeof data == "object" && data.length == 0) {
+        if (typeof data == "object" && data.length > 0) {
             flights = data
         } else {
             flights = [];

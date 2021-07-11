@@ -124,7 +124,7 @@ let loading = true;
 function updateControllers() {
     $.get("https://api.vzau.cloud/v1/live/controllers/ZAU").done((data) => {
         loading = false;
-        if (typeof data == "object" && data.length == 0) {
+        if (typeof data == "object" && data.length > 0) {
             atc = data
         } else {
             atc = [];
