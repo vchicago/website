@@ -280,12 +280,12 @@ function displayControllers() {
         flights.forEach(flight => {
             html = `${html}
                 <tr>
-                    <td class="table-light"><center>${flights['callsign']}</center></td>
-                    <td class="table-light"><center>${controller['name']}</center></td>
-                    <td class="table-light"><center>${controller['aircraft']}</center></td>
-                    <td class="table-light"><center>${controller['departure']}</center></td>
-                    <td class="table-light"><center>${controller['arrival']}</center></td>
-                    <td class="table-light"><center>${controller['route']}</center></td>
+                    <td class="table-light"><center>${flight['callsign']}</center></td>
+                    <td class="table-light"><center>${flight['name']}</center></td>
+                    <td class="table-light"><center>${flight['aircraft']}</center></td>
+                    <td class="table-light"><center>${flight['departure']}</center></td>
+                    <td class="table-light"><center>${flight['arrival']}</center></td>
+                    <td class="table-light"><center>${flight['route']}</center></td>
                 </tr>
             `;
         });
