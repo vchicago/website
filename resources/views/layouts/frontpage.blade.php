@@ -118,19 +118,19 @@
   <script src="/js/sb-admin-2.min.js"></script>
   
 <script>
-let controllers = [];
+let atc = [];
 let loading = true;
 
 function updateControllers() {
-    $.get("https://api.vzau.cloud/v1/live/controllers/ZAU").done((data) => {
+    $.get("https://api.vzau.cloud/v1/live/atc/ZAU").done((data) => {
         loading = false;
         if (typeof data == "object" && data.length == 0) {
-            controllers = data
+            atc = data
         } else {
-            controllers = [];
+            atc = [];
         }
     }).fail(() => {
-        controllers = [];
+        atc = [];
     })
 }
 
@@ -142,7 +142,7 @@ function displayControllers() {
         return;
     }
     let html = "";
-    if (controllers.length > 0) {
+    if (atc.length > 0) {
         data.forEach(controller => {
             let duration = ((new Date()) - (new Date(controller['logon_time']))).toISOString().substr(11, 5).replaceAll(":", "+");
             html = `${html}
@@ -155,7 +155,7 @@ function displayControllers() {
         });
 
         $("#onlineControllers tbody").html(`
-            <tr><td colspan="4"><center><i>No controllers online</i></center></td></tr>
+            <tr><td colspan="4"><center><i>No Controllers Online</i></center></td></tr>
         `);
     } else {
         $("#onlineControllers tbody").html(html);
