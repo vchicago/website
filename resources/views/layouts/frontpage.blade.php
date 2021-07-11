@@ -122,7 +122,7 @@ let atc = [];
 let loading = true;
 
 function updateControllers() {
-    $.get("https://api.vzau.cloud/v1/live/atc/ZAU").done((data) => {
+    $.get("https://api.vzau.cloud/v1/live/controllers/ZAU").done((data) => {
         loading = false;
         if (typeof data == "object" && data.length == 0) {
             atc = data
@@ -130,6 +130,7 @@ function updateControllers() {
             atc = [];
         }
     }).fail(() => {
+        loading = false;
         atc = [];
     })
 }
