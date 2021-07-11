@@ -8,7 +8,7 @@ use App\TrainingTicket;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
-class RosterRemovalWarn extends Command
+class RosterRemovalWarnFinal extends Command
 {
     /**
      * The name and signature of the console command.

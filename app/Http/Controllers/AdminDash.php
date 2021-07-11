@@ -283,7 +283,7 @@ class AdminDash extends Controller
     public function updateController(Request $request, $id) {
         $user = User::find($id);
 
-        if(Auth::user()->can('roster')) {
+        if(Auth::user()->isAbleTo('roster')) {
             $user->del = Input::get('del');
             $user->gnd = Input::get('gnd');
             $user->twr = Input::get('twr');
@@ -298,14 +298,14 @@ class AdminDash extends Controller
                 $user->visitor = 1;
             }
             if(Input::get('canTrain') == null) {
-                $user->canTrain = 0;
+                $user->isAbleToTrain = 0;
             } elseif(Input::get('canTrain') == 1) {
-                $user->canTrain = 1;
+                $user->isAbleToTrain = 1;
             }
             if(Input::get('canEvents') == null) {
-                $user->canEvents = 0;
+                $user->isAbleToEvents = 0;
             } elseif(Input::get('canEvents') == 1) {
-                $user->canEvents = 1;
+                $user->isAbleToEvents = 1;
             }
             if(Input::get('api_exempt') == null) {
                 $user->api_exempt = 0;
@@ -991,7 +991,7 @@ class AdminDash extends Controller
     public function showFeedback() {
         $controllers = User::where('status', 1)->orderBy('lname', 'ASC')->get()->pluck('backwards_name', 'id');
         $feedback = Feedback::where('status', 0)->orderBy('created_at', 'ASC')->get();
-        $feedback_p = Feedback::where('status', 1)->orwhere('status', 2)->orderBy('updated_at', 'DSC')->paginate(25);
+        $feedback_p = Feedback::where('status', 1)->orwhere('status', 2)->orderBy('updated_at', 'DESC')->paginate(25);
         return view('dashboard.admin.feedback')->with('feedback', $feedback)->with('feedback_p', $feedback_p)->with('controllers', $controllers);
     }
 
@@ -1525,8 +1525,8 @@ class AdminDash extends Controller
     }
 
     public function setEventPositionPreset(Request $request, $id) {
-        $positions = EventPosition::where('event_id', $id)->orderBy('id', 'DSC')->get();
-        $last_preset_position = PresetPosition::orderBy('id', 'DSC')->first()->id;
+        $positions = EventPosition::where('event_id', $id)->orderBy('id', 'DESC')->get();
+        $last_preset_position = PresetPosition::orderBy('id', 'DESC')->first()->id;
         $last = $last_preset_position + 1;
         $preset_positions = $positions->count() + $last_preset_position;
 
@@ -1572,8 +1572,8 @@ class AdminDash extends Controller
     }
 
     public function incidentReportIndex() {
-        $new_reports = Incident::where('status', 0)->orderBy('created_at', 'DSC')->get();
-        $archive_reports = Incident::where('status', 1)->orderBy('created_at', 'DSC')->paginate(20);
+        $new_reports = Incident::where('status', 0)->orderBy('created_at', 'DESC')->get();
+        $archive_reports = Incident::where('status', 1)->orderBy('created_at', 'DESC')->paginate(20);
 
         return view('dashboard.admin.incident_reports.index')->with('new_reports', $new_reports)->with('archive_reports', $archive_reports);
     }
@@ -1612,7 +1612,7 @@ class AdminDash extends Controller
     }
 
     public function showAudits() {
-        $audits = Audit::orderBy('created_at', 'DSC')->paginate(50);
+        $audits = Audit::orderBy('created_at', 'DESC')->paginate(50);
         return view('dashboard.admin.audits')->with('audits', $audits);
     }
 }

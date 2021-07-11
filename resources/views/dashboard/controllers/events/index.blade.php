@@ -17,7 +17,7 @@ Events
 <br>
 <br>
 <div class="container">
-    @if(Auth::user()->can('events'))
+    @if(Auth::user()->isAbleTo('events'))
         <a href="/dashboard/admin/events/new" class="btn btn-primary">New Event</a>
         <br><br>
     @endif
@@ -27,7 +27,7 @@ Events
                 <th scope="col" class="text-gray-200">Event</th>
                 <th scope="col" class="text-gray-200"><center>Date</center></th>
                 <th scope="col" class="text-gray-200"><center>Time</center></th>
-                @if(Auth::user()->can('events'))
+                @if(Auth::user()->isAbleTo('events'))
                     <th scope="col" class="text-gray-200"><center>Actions</center></th>
                 @endif
             </tr>
@@ -43,7 +43,7 @@ Events
                         @endif
                         <td class="text-gray-200">{{ $e->date }}</td>
                         <td class="text-gray-200">{{ $e->start_time }} - {{ $e->end_time }}z</td>
-                        @if(Auth::user()->can('events'))
+                        @if(Auth::user()->isAbleTo('events'))
                             <td>
                                 @if($e->status == 0)
                                     <a href="/dashboard/admin/events/set-active/{{ $e->id }}" class="btn btn-success" data-toggle="tooltip" title="Unhide Event"><i class="fas fa-check"></i></a>

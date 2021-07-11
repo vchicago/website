@@ -18,10 +18,7 @@ class TrainingTicket extends Model
         if($user != null) {
             $name = $user->full_name;
         } else {
-            $client = new Client();
-            $response = $client->request('GET', 'https://cert.vatsim.net/vatsimnet/idstatus.php?cid='.$this->trainer_id);
-            $r = new SimpleXMLElement($response->getBody());
-            $name = $r->user->name_first.' '.$r->user->name_last;
+            $name = "Unknown";
         }
 
         return $name;
