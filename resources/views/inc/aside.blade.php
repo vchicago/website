@@ -5,30 +5,16 @@
 				<br>
 	            <h5 class="text-primary"><i class="fa fa-broadcast-tower rotate-n-15"></i> Online Controllers</h5>
             <div class="table">
-                <table class="table table-bordered table-responsive-lg table-sm">
+                <table class="table table-bordered table-responsive-lg table-sm" id="onlineControllers">
                     <thead>
                         <th scope="col" class="text-xs"><center>Position</center></th>
                         <th scope="col" class="text-xs"><center>Controller</center></th>
                         <th scope="col" class="text-xs"><center>Time Online</center></th>
                     </thead>
                     <tbody>
-                        @if($controllers->count() > 0)
-                            @foreach($controllers as $c)
-                                <tr>
-                                    <td class="text-xs"><center>{{ $c->position }}</center></td>
-                                    <td class="text-xs"><center>{{ $c->name }}</center></td>
-                                    <td class="text-xs"><center>{{ $c->time_online }}</center></td>
-                                </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="4" class="text-xs"><center><i>No Controllers Online</i></center></td>
-                            </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>
-			<p class="text-xs"><i class="fas fa-sync-alt fa-spin"></i> Last Updated {{ $controllers_update }}Z</p>
 	</div>
 	</div>
 	</div>
@@ -74,4 +60,53 @@
 	</div>
 	</div>
 </div>
-		
+
+<script>
+let controllers = [];
+let loading = true;
+
+function updateControllers() {
+    $.get("https://api.vzau.cloud/v1/live/controllers/ZAU").done((data) => {
+        loading = false;
+        if (typeof data == "object" && data.length == 0) {
+            controllers = data
+        } else {
+            controllers = [];
+        }
+    }).fail(() => {
+        controllers = [];
+    })
+}
+
+function displayControllers() {
+    if (loading) {
+        $("#onlineControllers tbody").html(`
+            <tr><td colspan="4"><center><i>Loading...</i></center></td></tr>
+        `);
+        return;
+    }
+    let html = "";
+    if (controllers.length > 0) {
+        data.forEach(controller => {
+            let duration = ((new Date()) - (new Date(controller['logon_time']))).toISOString().substr(11, 5).replaceAll(":", "+");
+            html = `${html}
+                <tr>
+                <td><center><small>${controller['callsign']}</small></center></td>
+                <td><center><small>${controller['name']}</small></center></td>
+                <td><center><small>${duration}</small></center></td>
+                </tr>
+            `;
+        });
+
+        $("#onlineControllers tbody").html(`
+            <tr><td colspan="4"><center><i>No controllers online</i></center></td></tr>
+        `);
+    } else {
+        $("#onlineControllers tbody").html(html);
+    }
+}
+
+updateControllers();
+setInterval(() => updateControllers(), 120000);
+setInterval(() => displayControllers(), 1000);
+</script>
