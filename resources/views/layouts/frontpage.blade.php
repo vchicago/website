@@ -155,11 +155,11 @@ function displayControllers() {
             `;
         });
 
+        $("#onlineControllers tbody").html(html);
+    } else {
         $("#onlineControllers tbody").html(`
             <tr><td colspan="4"><center><i>No Controllers Online</i></center></td></tr>
         `);
-    } else {
-        $("#onlineControllers tbody").html(html);
     }
 }
 
