@@ -44,7 +44,7 @@ OTS Center
                                 <td>{{ $o->position_name }}</td>
                                 <td>
                                     <a href="/dashboard/training/ots-center/accept/{{ $o->id }}" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Accept Recommendation"><i class="fas fa-check"></i></a>
-                                    @if(Auth::user()->can('snrStaff'))
+                                    @if(Auth::user()->isAbleTo('snrStaff'))
                                         <a href="/dashboard/training/ots-center/reject/{{ $o->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Reject Recommendation"><i class="fas fa-times"></i></a>
                                         <span data-toggle="modal" data-target="#assign{{ $o->id }}">
                                             <button type="button" class="btn btn-success simple-tooltip" data-placement="top" data-toggle="tooltip" title="Assign to Instructor"><i class="fas fa-user-check"></i></button>
@@ -103,7 +103,7 @@ OTS Center
                                 <td>{{ $o->ins_name }}</td>
                                 <td>{{ $o->position_name }}</td>
                                 <td>
-                                    @if($o->ins_id == Auth::id() || Auth::user()->can('snrStaff'))
+                                    @if($o->ins_id == Auth::id() || Auth::user()->isAbleTo('snrStaff'))
                                         <span data-toggle="modal" data-target="#completeOTS{{ $o->id }}">
                                             <button type="button" class="btn btn-success simple-tooltip" data-placement="top" data-toggle="tooltip" title="Set OTS as Complete"><i class="fas fa-check"></i></button>
                                         </span>

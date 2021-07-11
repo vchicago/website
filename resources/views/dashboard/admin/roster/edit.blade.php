@@ -75,7 +75,7 @@ Update Controller
                 </div>
             </div>
         </div>
-        @if(Auth::user()->can('roster'))
+        @if(Auth::user()->isAbleTo('roster'))
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6">
@@ -114,7 +114,7 @@ Update Controller
                 </div>
             </div>
         @endif
-        @if(Auth::user()->can('roster'))
+        @if(Auth::user()->isAbleTo('roster'))
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6">
@@ -165,7 +165,7 @@ Update Controller
                 </div>
             </div>
         @endif
-        @if(Auth::user()->can('roster'))
+        @if(Auth::user()->isAbleTo('roster'))
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6">
@@ -252,7 +252,7 @@ Update Controller
                 </div>
             </div>
         @endif
-        @if(Auth::user()->can('roster'))
+        @if(Auth::user()->isAbleTo('roster'))
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6">
@@ -341,7 +341,7 @@ Update Controller
                 </div>
             </div>
         @endif
-        @if(Auth::user()->can('roster'))
+        @if(Auth::user()->isAbleTo('roster'))
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-6">
@@ -372,11 +372,11 @@ Update Controller
                 </div>
             </div>
         @endif
-        @if(Auth::user()->can('roster'))
+        @if(Auth::user()->isAbleTo('roster'))
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-10">
-                        @if($user->canTrain == 1)
+                        @if($user->isAbleToTrain == 1)
                             {!! Form::label('canTrain', 'Allow Training?') !!}
                             {!! Form::checkbox('canTrain', 1, true) !!}
                         @else
@@ -395,7 +395,7 @@ Update Controller
                         @endif
                     </div>
                     <div class="col-sm-10">
-                        @if($user->canEvents == 1)
+                        @if($user->isAbleToEvents == 1)
                             {!! Form::label('canEvents', 'Allow Signing up for Events?') !!}
                             {!! Form::checkbox('canEvents', 1, true) !!}
                         @else
@@ -420,7 +420,7 @@ Update Controller
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-10">
-                        @if($user->canTrain == 1)
+                        @if($user->isAbleToTrain == 1)
                             {!! Form::label('canTrain', 'Allow Training?') !!}
                             {!! Form::checkbox('canTrain', 1, true, ['disabled']) !!}
                         @else
@@ -438,7 +438,7 @@ Update Controller
                         @endif
                     </div>
                     <div class="col-sm-10">
-                        @if($user->canEvents == 1)
+                        @if($user->isAbleToEvents == 1)
                             {!! Form::label('canEvents', 'Allow Signing up for Events?') !!}
                             {!! Form::checkbox('canEvents', 1, true, ['disabled']) !!}
                         @else

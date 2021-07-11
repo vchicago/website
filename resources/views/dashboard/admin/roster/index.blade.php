@@ -45,7 +45,7 @@ Roster Management
         </div>
     </div>
     <br>
-    @if(Auth::user()->can('roster'))
+    @if(Auth::user()->isAbleTo('roster'))
         <a href="/dashboard/admin/roster/visit/requests" class="btn btn-warning">Visit Requests</a>
         <a href="/dashboard/admin/roster/purge-assistant" class="btn btn-danger">Roster Purge Assistant</a>
         <br><br>

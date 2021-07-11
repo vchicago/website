@@ -2,7 +2,7 @@
     Auth::user()->hasRole('ins') && App\Ots::where('status', 0)->get()->count() > 0 || Auth::user()->hasRole('atm') && App\Ots::where('status', 0)->get()->count() > 0 ||
     App\Ots::where('status', 1)->where('ins_id', Auth::id())->get()->count() > 0 ||
     App\TrainingTicket::where('created_at', '>=', Carbon\Carbon::now()->subHours(24))->where('controller_id', Auth::id())->first() != null ||
-    count(App\Incident::where('status', 0)->get()) > 0 && Auth::user()->can('snrStaff')
+    count(App\Incident::where('status', 0)->get()) > 0 && Auth::user()->isAbleTo('snrStaff')
     )
 		@if(Auth::user()->hasRole('ins') && App\Ots::where('status', 0)->get()->count() > 0 || Auth::user()->hasRole('atm') && App\Ots::where('status', 0)->get()->count() > 0)
 		                <a class="dropdown-item d-flex align-items-center" href="/dashboard/training/ots-center">
@@ -44,7 +44,7 @@
 				<a class="dropdown-item text-center small text-gray-500" href="#">Training ticket notifications expire within 24 hours.</a>
 		@endif
 
-		@if(count(App\Incident::where('status', 0)->get()) > 0 && Auth::user()->can('snrStaff'))
+		@if(count(App\Incident::where('status', 0)->get()) > 0 && Auth::user()->isAbleTo('snrStaff'))
 							                <a class="dropdown-item d-flex align-items-center" href="/dashboard/admin/incident">
                   <div class="mr-3">
                     <div class="icon-circle bg-danger">

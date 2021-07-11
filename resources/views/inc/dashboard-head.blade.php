@@ -21,45 +21,45 @@
       </div>
 	  
     </li>
-	 @if(Auth::user()->canTrain == 1 || Auth::user()->can('train'))
+	 @if(Auth::user()->isAbleToTrain == 1 || Auth::user()->isAbleTo('train'))
 		 <li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
 			Training </a>
 			<div class="dropdown-menu">
         <script id="setmore_script" type="text/javascript" src="https://my.setmore.com/webapp/js/src/others/setmore_iframe.js"></script><a id="Setmore_button_iframe"  class="dropdown-item" href="https://my.setmore.com/bookingpage/{{ \Config::get('facility.setmore') }}">Schedule Training</a>
         <a class="dropdown-item" href="/dashboard/training/atcast">ATCast Videos</a>
-		@if(Auth::user()->can('train'))
+		@if(Auth::user()->isAbleTo('train'))
 		<a class="dropdown-item" href="/dashboard/training/info">Training Information</a>
 		<a class="dropdown-item" href="/dashboard/training/tickets">Training Tickets</a>
 		<a class="dropdown-item" href="https://my.setmore.com/" target="_blank">Schedule Management</a>
-		                    @if(Auth::user()->hasRole('ins') || Auth::user()->can('snrStaff'))
+		                    @if(Auth::user()->hasRole('ins') || Auth::user()->isAbleTo('snrStaff'))
                         <a class="dropdown-item" href="/dashboard/training/ots-center">OTS Center</a>
                     @endif
                 @endif
       </div>
 	  @endif
 		</li>	
-		@if(Auth::user()->can('staff') || Auth::user()->can('email') || Auth::user()->can('scenery') || Auth::user()->can('files') || Auth::user()->can('events'))
+		@if(Auth::user()->isAbleTo('staff') || Auth::user()->isAbleTo('email') || Auth::user()->isAbleTo('scenery') || Auth::user()->isAbleTo('files') || Auth::user()->isAbleTo('events'))
 			<li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
         Admin
       </a>
       <div class="dropdown-menu">
-	@if(Auth::user()->can('staff'))
+	@if(Auth::user()->isAbleTo('staff'))
         <a class="dropdown-item" href="/dashboard/admin/calendar">Calendar/News</a>
         <a class="dropdown-item" href="/dashboard/admin/airports">Airport Management</a>
 	@endif
-	@if(Auth::user()->can('scenery'))	
+	@if(Auth::user()->isAbleTo('scenery'))	
 		<a class="dropdown-item" href="/dashboard/admin/scenery">Scenery Management</a>
 	@endif
-    @if(Auth::user()->can('snrStaff'))
+    @if(Auth::user()->isAbleTo('snrStaff'))
 		<a class="dropdown-item" href="/dashboard/admin/feedback">Feedback Management</a>
 		<a class="dropdown-item" href="/dashboard/admin/incident">Incident Reports Management</a>
 	@endif
-    @if(Auth::user()->can('email'))
+    @if(Auth::user()->isAbleTo('email'))
 		<a class="dropdown-item" href="/dashboard/admin/email/send">Send New Email</a>
 	@endif
-    @if(Auth::user()->can('snrStaff'))
+    @if(Auth::user()->isAbleTo('snrStaff'))
         <a class="dropdown-item" href="/dashboard/admin/audits">Website Activity</a>
     @endif
       </div>

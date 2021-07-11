@@ -11,7 +11,7 @@ Training Information
 <br>
 
 <div class="container">
-	@if(Auth::user()->can('snrStaff'))
+	@if(Auth::user()->isAbleTo('snrStaff'))
         <span data-toggle="modal" data-target="#newSection">
             <button type="button" class="btn btn-info">Add New Section</button>
         </span>
@@ -52,7 +52,7 @@ Training Information
                             <h3>{{ $p->name }}</h3>
                         </div>
                         <div class="col-sm-2">
-                            @if(Auth::user()->can('snrStaff'))
+                            @if(Auth::user()->isAbleTo('snrStaff'))
                                 <span data-toggle="modal" data-target="#editSection{{ $p->id }}">
                                     <button type="button" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Edit Section"><i class="fas fa-pencil-alt"></i></button>
                                 </span>
@@ -80,7 +80,7 @@ Training Information
                                     </div>
                                 </div>
                             @endif
-                            @if(Auth::user()->can('snrStaff'))
+                            @if(Auth::user()->isAbleTo('snrStaff'))
                                 <a href="/dashboard/training/info/public/remove-section/{{ $p->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Remove Section"><i class="fas fa-times"></i></a>
                             @endif
                         </div>
@@ -89,7 +89,7 @@ Training Information
             </div>
             <div class="content">
                 <div class="card-body">
-                    @if(Auth::user()->can('snrStaff'))
+                    @if(Auth::user()->isAbleTo('snrStaff'))
                         <span data-toggle="modal" data-target="#newPDF{{ $p->id }}">
                             <button type="button" class="btn btn-info">Add New PDF</button>
                         </span>
@@ -121,7 +121,7 @@ Training Information
                     @endif
                     @foreach($p->pdf as $pdf)
                         <center><embed src="https://drive.google.com/viewerng/viewer?embedded=true&url={{ \Config::get('app.url') }}{{ $pdf->pdf_path }}" width="600px" height="755px"></center>
-                        @if(Auth::user()->can('snrStaff'))
+                        @if(Auth::user()->isAbleTo('snrStaff'))
                             <br>
                             <a href="/dashboard/training/info/public/remove-pdf/{{ $pdf->id }}" class="btn btn-danger">^ Remove PDF ^</a>
                         @endif
@@ -133,7 +133,7 @@ Training Information
         <br>
     @endforeach
     <br><br>
-    @if(Auth::user()->can('train'))
+    @if(Auth::user()->isAbleTo('train'))
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
@@ -148,7 +148,7 @@ Training Information
                                 @if($info_minor_gnd->count() > 0)
                                     @foreach($info_minor_gnd as $i)
                                         <li>
-                                            @if(Auth::user()->can('snrStaff'))
+                                            @if(Auth::user()->isAbleTo('snrStaff'))
                                                 <a href="/dashboard/training/info/delete/{{ $i->id }}" style="color:inherit" data-toggle="tooltip" title="Remove Information"><i class="fas fa-times"></i></a>
                                                 &nbsp;
                                             @endif
@@ -158,7 +158,7 @@ Training Information
                                 @else
                                     <p>There is no information to show.</p>
                                 @endif
-                                @if(Auth::user()->can('snrStaff'))
+                                @if(Auth::user()->isAbleTo('snrStaff'))
                                     <br>
                                     {!! Form::open(['action' => ['TrainingDash@addInfo', 0]]) !!}
                                     <div class="form-row">
@@ -195,7 +195,7 @@ Training Information
                                 @if($info_minor_lcl->count() > 0)
                                     @foreach($info_minor_lcl as $i)
                                         <li>
-                                            @if(Auth::user()->can('snrStaff'))
+                                            @if(Auth::user()->isAbleTo('snrStaff'))
                                                 <a href="/dashboard/training/info/delete/{{ $i->id }}" style="color:inherit" data-toggle="tooltip" title="Remove Information"><i class="fas fa-times"></i></a>
                                                 &nbsp;
                                             @endif
@@ -205,7 +205,7 @@ Training Information
                                 @else
                                     <p>There is no information to show.</p>
                                 @endif
-                                @if(Auth::user()->can('snrStaff'))
+                                @if(Auth::user()->isAbleTo('snrStaff'))
                                     <br>
                                     {!! Form::open(['action' => ['TrainingDash@addInfo', 1]]) !!}
                                     <div class="form-row">
@@ -242,7 +242,7 @@ Training Information
                                 @if($info_minor_app->count() > 0)
                                     @foreach($info_minor_app as $i)
                                         <li>
-                                            @if(Auth::user()->can('snrStaff'))
+                                            @if(Auth::user()->isAbleTo('snrStaff'))
                                                 <a href="/dashboard/training/info/delete/{{ $i->id }}" style="color:inherit" data-toggle="tooltip" title="Remove Information"><i class="fas fa-times"></i></a>
                                                 &nbsp;
                                             @endif
@@ -252,7 +252,7 @@ Training Information
                                 @else
                                     <p>There is no information to show.</p>
                                 @endif
-                                @if(Auth::user()->can('snrStaff'))
+                                @if(Auth::user()->isAbleTo('snrStaff'))
                                     <br>
                                     {!! Form::open(['action' => ['TrainingDash@addInfo', 2]]) !!}
                                     <div class="form-row">
@@ -290,7 +290,7 @@ Training Information
                                 @if($info_major_gnd->count() > 0)
                                     @foreach($info_major_gnd as $i)
                                         <li>
-                                            @if(Auth::user()->can('snrStaff'))
+                                            @if(Auth::user()->isAbleTo('snrStaff'))
                                                 <a href="/dashboard/training/info/delete/{{ $i->id }}" style="color:inherit" data-toggle="tooltip" title="Remove Information"><i class="fas fa-times"></i></a>
                                                 &nbsp;
                                             @endif
@@ -300,7 +300,7 @@ Training Information
                                 @else
                                     <p>There is no information to show.</p>
                                 @endif
-                                @if(Auth::user()->can('snrStaff'))
+                                @if(Auth::user()->isAbleTo('snrStaff'))
                                     <br>
                                     {!! Form::open(['action' => ['TrainingDash@addInfo', 3]]) !!}
                                     <div class="form-row">
@@ -337,7 +337,7 @@ Training Information
                                 @if($info_major_lcl->count() > 0)
                                     @foreach($info_major_lcl as $i)
                                         <li>
-                                            @if(Auth::user()->can('snrStaff'))
+                                            @if(Auth::user()->isAbleTo('snrStaff'))
                                                 <a href="/dashboard/training/info/delete/{{ $i->id }}" style="color:inherit" data-toggle="tooltip" title="Remove Information"><i class="fas fa-times"></i></a>
                                                 &nbsp;
                                             @endif
@@ -347,7 +347,7 @@ Training Information
                                 @else
                                     <p>There is no information to show.</p>
                                 @endif
-                                @if(Auth::user()->can('snrStaff'))
+                                @if(Auth::user()->isAbleTo('snrStaff'))
                                     <br>
                                     {!! Form::open(['action' => ['TrainingDash@addInfo', 4]]) !!}
                                     <div class="form-row">
@@ -384,7 +384,7 @@ Training Information
                                 @if($info_major_app->count() > 0)
                                     @foreach($info_major_app as $i)
                                         <li>
-                                            @if(Auth::user()->can('snrStaff'))
+                                            @if(Auth::user()->isAbleTo('snrStaff'))
                                                 <a href="/dashboard/training/info/delete/{{ $i->id }}" style="color:inherit" data-toggle="tooltip" title="Remove Information"><i class="fas fa-times"></i></a>
                                                 &nbsp;
                                             @endif
@@ -394,7 +394,7 @@ Training Information
                                 @else
                                     <p>There is no information to show.</p>
                                 @endif
-                                @if(Auth::user()->can('snrStaff'))
+                                @if(Auth::user()->isAbleTo('snrStaff'))
                                     <br>
                                     {!! Form::open(['action' => ['TrainingDash@addInfo', 5]]) !!}
                                     <div class="form-row">
@@ -433,7 +433,7 @@ Training Information
                         @if($info_ctr->count() > 0)
                             @foreach($info_ctr as $i)
                                 <li>
-                                    @if(Auth::user()->can('snrStaff'))
+                                    @if(Auth::user()->isAbleTo('snrStaff'))
                                         <a href="/dashboard/training/info/delete/{{ $i->id }}" style="color:inherit" data-toggle="tooltip" title="Remove Information"><i class="fas fa-times"></i></a>
                                         &nbsp;
                                     @endif
@@ -443,7 +443,7 @@ Training Information
                         @else
                             <p>There is no information to show.</p>
                         @endif
-                        @if(Auth::user()->can('snrStaff'))
+                        @if(Auth::user()->isAbleTo('snrStaff'))
                             <br>
                             {!! Form::open(['action' => ['TrainingDash@addInfo', 6]]) !!}
                             <div class="form-row">

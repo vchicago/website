@@ -18,7 +18,7 @@ class MentorController extends Controller {
 	public function cancelSession($id)
 	{
 		$request = MentorAvail::find($id);
-		$request->cancel_message = Input::get('cancel');
+		$request->isAbleTocel_message = Input::get('cancel');
 		$request->save();
 		$request->sendCancellationEmail();
 		$request->delete();

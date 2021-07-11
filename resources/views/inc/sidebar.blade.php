@@ -48,7 +48,7 @@
       </li>
 
       <!-- Nav Item - Training Collapse Menu -->
-	  @if(Auth::user()->canTrain == 1 || Auth::user()->can('train'))
+	  @if(Auth::user()->isAbleToTrain == 1 || Auth::user()->isAbleTo('train'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
@@ -60,12 +60,12 @@
             <script id="setmore_script" type="text/javascript" src="https://my.setmore.com/webapp/js/src/others/setmore_iframe.js"></script><a id="Setmore_button_iframe"  class="collapse-item" href="https://my.setmore.com/bookingpage/{{ \Config::get('facility.setmore') }}">Schedule Training</a>
             <a class="collapse-item" href="/dashboard/training/atcast">ATCast Videos</a>
 			<a class="collapse-item" href="/dashboard/training/info">Training Information</a>
-            @if(Auth::user()->can('train'))
+            @if(Auth::user()->isAbleTo('train'))
 			<div class="collapse-divider"></div>
 			<h6 class="collapse-header">Mentors/Instructors:</h6>
             <a class="collapse-item" href="/dashboard/training/tickets">Training Tickets</a>
 			<a class="collapse-item" href="https://my.setmore.com/" target="_blank">Schedule Management</a>
-				@if(Auth::user()->hasRole('ins') || Auth::user()->can('snrStaff'))
+				@if(Auth::user()->hasRole('ins') || Auth::user()->isAbleTo('snrStaff'))
 					<a class="collapse-item" href="/dashboard/training/ots-center">OTS Center</a>
 				@endif
             @endif
@@ -73,7 +73,7 @@
         </div>
       </li>
 	  @endif
-	  @if(Auth::user()->can('staff') || Auth::user()->can('email') || Auth::user()->can('scenery') || Auth::user()->can('files') || Auth::user()->can('events'))
+	  @if(Auth::user()->isAbleTo('staff') || Auth::user()->isAbleTo('email') || Auth::user()->isAbleTo('scenery') || Auth::user()->isAbleTo('files') || Auth::user()->isAbleTo('events'))
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -87,19 +87,19 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Website Administration</h6>
-			@if(Auth::user()->can('staff'))
+			@if(Auth::user()->isAbleTo('staff'))
             <a class="collapse-item" href="/dashboard/admin/airports">Airport Management</a>
 			@endif
-			@if(Auth::user()->can('scenery'))	
+			@if(Auth::user()->isAbleTo('scenery'))	
             <a class="collapse-item" href="/dashboard/admin/scenery">Scenery Management</a>
 			@endif
-			@if(Auth::user()->can('snrStaff'))
+			@if(Auth::user()->isAbleTo('snrStaff'))
 			<a class="collapse-item" href="/dashboard/admin/announcement">Announcements</a>
 			<a class="collapse-item" href="/dashboard/admin/calendar">News</a>
 			<a class="collapse-item" href="/dashboard/admin/feedback">Feedback</a>
             <a class="collapse-item" href="/dashboard/admin/incident">Incident Reports</a>
 			@endif
-			@if(Auth::user()->can('roster'))
+			@if(Auth::user()->isAbleTo('roster'))
 			<a class="collapse-item" href="/dashboard/admin/bronze-mic">Bronze Mic</a>
 			<a class="collapse-item" href="/dashboard/admin/pyrite-mic">Pyrite Mic</a>
 			@endif
@@ -108,14 +108,14 @@
       </li>
 	  @endif
       <!-- Nav Item - Charts -->
-	@if(Auth::user()->can('email'))
+	@if(Auth::user()->isAbleTo('email'))
       <li class="nav-item">
         <a class="nav-link" href="/dashboard/admin/email/send">
           <i class="fas fa-share-square"></i>
           <span>Send Auto Email</span></a>
       </li>
 	@endif
-	@if(Auth::user()->can('snrStaff'))
+	@if(Auth::user()->isAbleTo('snrStaff'))
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="http://mail.chicagoartcc.org">
@@ -123,7 +123,7 @@
           <span>Staff Email</span></a>
       </li>
 	 @endif
-	@if(Auth::user()->can('snrStaff'))
+	@if(Auth::user()->isAbleTo('snrStaff'))
 	      <li class="nav-item">
         <a class="nav-link" href="/dashboard/admin/audits">
           <i class="fas fa-file-alt"></i>

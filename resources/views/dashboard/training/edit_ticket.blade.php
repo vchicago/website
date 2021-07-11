@@ -40,7 +40,7 @@ Edit Training Ticket
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
-                    @if(Auth::user()->hasRole('ins') || Auth::user()->can('snrStaff'))
+                    @if(Auth::user()->hasRole('ins') || Auth::user()->isAbleTo('snrStaff'))
                         {!! Form::label('type', 'Session Type', ['class' => 'form-label']) !!}
                         {!! Form::select('type', [
                             0 => 'Classroom Training',

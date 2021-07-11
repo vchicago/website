@@ -43,7 +43,7 @@ Files
         <li class="nav-item">
             <a class="nav-link bg-primary text-gray-200" href="#misc" role="tab" data-toggle="tab">Miscellaneous</a>
         </li>
-        @if(Auth::user()->can('staff') || Auth::user()->can('train'))
+        @if(Auth::user()->isAbleTo('staff') || Auth::user()->isAbleTo('train'))
             <li class="nav-item">
                 <a class="nav-link bg-primary text-gray-200" href="#staff" role="tab" data-toggle="tab">Staff</a>
             </li>
@@ -53,7 +53,7 @@ Files
 			</li>
         @endif
     </ul>
-				 @if(Auth::user()->can('files'))
+				 @if(Auth::user()->isAbleTo('files'))
 					 <hr>
         <a href="/dashboard/admin/files/upload" class="btn btn-success">Upload File</a>
 		@endif
@@ -83,7 +83,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif
@@ -114,7 +114,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif
@@ -145,7 +145,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif
@@ -176,7 +176,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif
@@ -207,7 +207,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif
@@ -238,7 +238,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif
@@ -269,7 +269,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif
@@ -300,7 +300,7 @@ Files
                                 <td>{{ $f->updated_at }}</td>
                                 <td><center>
                                     <a href="{{ $f->path }}" target="_blank" class="btn btn-success simple-tooltip" data-toggle="tooltip" title="Download"><i class="fas fa-download"></i></a>
-                                    @if(Auth::user()->can('files'))
+                                    @if(Auth::user()->isAbleTo('files'))
                                         <a href="/dashboard/admin/files/edit/{{ $f->id }}" class="btn btn-warning simple-tooltip" data-toggle="tooltip" title="Edit"><i class="fas fa-pencil-alt"></i></a>
                                         <a href="/dashboard/admin/files/delete/{{ $f->id }}" class="btn btn-danger simple-tooltip" data-toggle="tooltip" title="Delete"><i class="fas fa-times"></i></a>
                                     @endif

@@ -284,7 +284,7 @@ class TrainingDash extends Controller
 
     public function editTicket($id) {
         $ticket = TrainingTicket::find($id);
-        if(Auth::id() == $ticket->trainer_id || Auth::user()->can('snrStaff')) {
+        if(Auth::id() == $ticket->trainer_id || Auth::user()->isAbleTo('snrStaff')) {
             $controllers = User::where('status', '1')->where('canTrain', '1')->orderBy('lname', 'ASC')->get()->pluck('backwards_name', 'id');
             return view('dashboard.training.edit_ticket')->with('ticket', $ticket)->with('controllers', $controllers);
         } else {
@@ -294,7 +294,7 @@ class TrainingDash extends Controller
 
     public function saveTicket(Request $request, $id) {
         $ticket = TrainingTicket::find($id);
-        if(Auth::id() == $ticket->trainer_id || Auth::user()->can('snrStaff')) {
+        if(Auth::id() == $ticket->trainer_id || Auth::user()->isAbleTo('snrStaff')) {
             $request->validate([
                 'controller' => 'required',
                 'position' => 'required',
@@ -330,7 +330,7 @@ class TrainingDash extends Controller
 
     public function deleteTicket($id) {
         $ticket = TrainingTicket::find($id);
-        if(Auth::user()->can('snrStaff')) {
+        if(Auth::user()->isAbleTo('snrStaff')) {
             $controller_id = $ticket->controller_id;
             $ticket->delete();
 
@@ -372,7 +372,7 @@ class TrainingDash extends Controller
     }
 
     public function rejectRecommendation($id) {
-        if(!Auth::user()->can('snrStaff')) {
+        if(!Auth::user()->isAbleTo('snrStaff')) {
             return redirect()->back()->with('error', 'Only the TA can reject OTS recommendations.');
         } else {
             $ots = Ots::find($id);
@@ -383,7 +383,7 @@ class TrainingDash extends Controller
     }
 
     public function assignRecommendation(Request $request, $id) {
-        if(!Auth::user()->can('snrStaff')) {
+        if(!Auth::user()->isAbleTo('snrStaff')) {
             return redirect()->back()->with('error', 'Only the TA can assign OTS recommendations to instructors.');
         } else {
             $ots = Ots::find($id);
@@ -418,7 +418,7 @@ class TrainingDash extends Controller
 
         $ots = Ots::find($id);
 
-        if($ots->ins_id == Auth::id() || Auth::user()->can('snrStaff')) {
+        if($ots->ins_id == Auth::id() || Auth::user()->isAbleTo('snrStaff')) {
             $ext = $request->file('ots_report')->getClientOriginalExtension();
             $time = Carbon::now()->timestamp;
             $path = $request->file('ots_report')->storeAs(

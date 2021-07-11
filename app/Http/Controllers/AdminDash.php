@@ -283,7 +283,7 @@ class AdminDash extends Controller
     public function updateController(Request $request, $id) {
         $user = User::find($id);
 
-        if(Auth::user()->can('roster')) {
+        if(Auth::user()->isAbleTo('roster')) {
             $user->del = Input::get('del');
             $user->gnd = Input::get('gnd');
             $user->twr = Input::get('twr');
@@ -298,14 +298,14 @@ class AdminDash extends Controller
                 $user->visitor = 1;
             }
             if(Input::get('canTrain') == null) {
-                $user->canTrain = 0;
+                $user->isAbleToTrain = 0;
             } elseif(Input::get('canTrain') == 1) {
-                $user->canTrain = 1;
+                $user->isAbleToTrain = 1;
             }
             if(Input::get('canEvents') == null) {
-                $user->canEvents = 0;
+                $user->isAbleToEvents = 0;
             } elseif(Input::get('canEvents') == 1) {
-                $user->canEvents = 1;
+                $user->isAbleToEvents = 1;
             }
             if(Input::get('api_exempt') == null) {
                 $user->api_exempt = 0;

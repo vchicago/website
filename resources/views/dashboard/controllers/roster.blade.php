@@ -11,7 +11,7 @@ Roster
 	<br>
 
 <div class="container">
-    @if(Auth::user()->can('roster'))
+    @if(Auth::user()->isAbleTo('roster'))
         <a href="/dashboard/admin/roster/visit/requests" class="btn btn-warning">Visit Requests</a>
         <a href="/dashboard/admin/roster/purge-assistant" class="btn btn-danger">Roster Purge Assistant</a>
         <br><br>
@@ -47,7 +47,7 @@ Roster
                 <tbody>
                     @foreach($hcontrollers as $c)
                         <tr>
-                            @if(Auth::user()->can('roster') || Auth::user()->can('train'))
+                            @if(Auth::user()->isAbleTo('roster') || Auth::user()->isAbleTo('train'))
                                 <td><a href="/dashboard/admin/roster/edit/{{ $c->id }}">
                                     @if($c->hasRole('atm'))
                                         <span class="badge badge-danger">ATM</span> {{ $c->backwards_name }} - {{ $c->initials }}
@@ -173,7 +173,7 @@ Roster
                 <tbody>
                      @foreach($vcontrollers as $c)
                         <tr>
-                            @if(Auth::user()->can('roster') || Auth::user()->can('train'))
+                            @if(Auth::user()->isAbleTo('roster') || Auth::user()->isAbleTo('train'))
 								@if($c->visitor == 1)
                                 <td><a href="/dashboard/admin/roster/edit/{{ $c->id }}">{{ $c->backwards_name }} - {{ $c->visitor_from }} Visitor</a></td>
 								@else
@@ -255,7 +255,7 @@ Roster
                 <tbody>
                      @foreach($loacontrollers as $c)
                         <tr>
-                            @if(Auth::user()->can('roster') || Auth::user()->can('train'))
+                            @if(Auth::user()->isAbleTo('roster') || Auth::user()->isAbleTo('train'))
                                 <td><a href="/dashboard/admin/roster/edit/{{ $c->id }}">{{ $c->backwards_name }} - {{ $c->initials }}</a></td>
                             @else
                                 <td>{{ $c->backwards_name }} - {{ $c->initials }}</td>
