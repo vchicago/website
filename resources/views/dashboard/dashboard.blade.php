@@ -24,12 +24,11 @@ Dashboard
 <hr>
     <center><h5 class="text-primary"><i class="fa fa-broadcast-tower rotate-n-15"></i> Online Controllers</h5></center>
     <div class="table-responsive">
-        <table class="table table-sm">
+        <table class="table table-sm" id="onlineControllers">
             <thead class="thead-light">
                 <th scope="col"><center>Position</center></th>
                 <th scope="col"><center>Frequency</center></th>
                 <th scope="col"><center>Controller</center></th>
-                <th scope="col"><center>Rating</center></th>
                 <th scope="col"><center>Logon Time</center></th>
                 <th scope="col"><center>Time Online</center></th>
             </thead>
@@ -40,23 +39,15 @@ Dashboard
                             <td class="table-light"><center>{{ $c->position }}</center></td>
                             <td class="table-light"><center>{{ $c->freq }}</center></td>
                             <td class="table-light"><center>{{ $c->name }}</center></td>
-                            @if(App\User::find($c->cid) != null)
-                                <td class="table-light"><center>{{ App\User::find($c->cid)->rating_long }}</center></td>
-                            @else
-                                <td class="table-light"><center><i>Rating Not Available</i></center></td>
-                            @endif
                             <td class="table-light"><center>{{ $c->logon_time }}</center></td>
                             <td class="table-light"><center>{{ $c->time_online }}</center></td>
                         </tr>
                     @endforeach
                 @else
                     <tr class="table-light">
-                        <td colspan="6"><center><i>No Controllers Online</i></center></td>
+                        <td colspan="5"><center><i>No Controllers Online</i></center></td>
                     </tr class="table-light">
                 @endif
-                <tr>
-                    <td colspan="6" class="table-light"><div align="right"><i class="fas fa-sync-alt fa-spin"></i> Last Updated {{ $controllers_update }}Z</div></td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -98,7 +89,7 @@ Dashboard
     <hr>
     <center><h5 class="text-primary">Flights Currently Within ZAU Airspace</h5></center>
     <div class="table-responsive">
-        <table class="table table-sm">
+        <table class="table table-sm" id="onlineFlights">
             <thead class="thead-light">
                 <th scope="col"><center>Callsign</center></th>
                 <th scope="col"><center>Pilot Name</center></th>
@@ -108,25 +99,6 @@ Dashboard
                 <th scope="col"><center>Route</center></th>
             </thead>
             <tbody>
-                @if($flights->count() > 0)
-                    @foreach($flights as $c)
-                        <tr>
-                            <td class="table-light"><center>{{ $c->callsign }}</center></td>
-                            <td class="table-light"><center>{{ $c->pilot_name }}</center></td>
-                            <td class="table-light"><center>{{ $c->type }}</center></td>
-                            <td class="table-light"><center>{{ $c->dep }}</center></td>
-                            <td class="table-light"><center>{{ $c->arr }}</center></td>
-                            <td class="table-light"><center>{{ str_limit($c->route, 60) }}</center></td>
-                        </tr>
-                    @endforeach
-                @else
-                    <tr>
-                        <td colspan="6" class="table-light"><center><i>No Pilots in {{ Config::get('facility.name_short') }} Airspace</i></center></td>
-                    </tr>
-                @endif
-                <tr>
-                    <td colspan="6" class="table-light"><div align="right"><i class="fas fa-sync-alt fa-spin"></i> Last Updated {{ $flights_update }}Z</div></td>
-                </tr>
             </tbody>
         </table>
     </div>
@@ -234,4 +206,100 @@ Dashboard
         </div>
     </div>
 	</div>
+@endsection
+
+@section("script")
+<script>
+let atc = [];
+let atcLoading = true;
+let flights = [];
+let flightsLoading = true;
+
+function updateControllers() {
+    $.get("https://api.vzau.cloud/v1/live/controllers/ZAU").done((data) => {
+        atcLoading = false;
+        if (typeof data == "object" && data.length == 0) {
+            atc = data
+        } else {
+            atc = [];
+        }
+    }).fail(() => {
+        atcLoading = false;
+        atc = [];
+    });
+    $.get("https://api.vzau.cloud/v1/live/flights/ZAU").done((data) => {
+        flightsLoading = false;
+        if (typeof data == "object" && data.length == 0) {
+            flights = data
+        } else {
+            flights = [];
+        }
+    }).fail(() => {
+        flightsLoading = false;
+        flights = [];
+    });
+}
+
+function displayControllers() {
+    if (atcLoading) {
+        $("#onlineControllers tbody").html(`
+            <tr><td colspan="5"><center><i>Loading...</i></center></td></tr>
+        `);
+        return;
+    }
+    let html = "";
+    if (atc.length > 0) {
+        data.forEach(controller => {
+            let duration = ((new Date()) - (new Date(controller['logon_time']))).toISOString().substr(11, 5).replaceAll(":", "+");
+            html = `${html}
+                <tr>
+                    <td class="table-light"><center>${controller['callsign']}</center></td>
+                    <td class="table-light"><center>${controller['frequency']}</center></td>
+                    <td class="table-light"><center>${controller['name']}</center></td>
+                    <td class="table-light"><center>${controller['logon_time']}</center></td>
+                    <td class="table-light"><center>${duration}</center></td>
+                </tr>
+            `;
+        });
+
+        $("#onlineControllers tbody").html(html);
+    } else {
+        $("#onlineControllers tbody").html(`
+            <tr><td colspan="5"><center><i>No Controllers Online</i></center></td></tr>
+        `);
+    }
+
+    if (flightsLoading) {
+        $("#onlineFlights tbody").html(`
+            <tr><td colspan="5"><center><i>Loading...</i></center></td></tr>
+        `);
+        return;
+    }
+    let html = "";
+    if (flights.length > 0) {
+        data.forEach(flight => {
+            html = `${html}
+                <tr>
+                    <td class="table-light"><center>${flights['callsign']}</center></td>
+                    <td class="table-light"><center>${controller['name']}</center></td>
+                    <td class="table-light"><center>${controller['aircraft']}</center></td>
+                    <td class="table-light"><center>${controller['departure']}</center></td>
+                    <td class="table-light"><center>${controller['arrival']}</center></td>
+                    <td class="table-light"><center>${controller['route']}</center></td>
+                </tr>
+            `;
+        });
+
+        $("#onlineFlights tbody").html(html);
+    } else {
+        $("#onlineFlights tbody").html(`
+            <tr><td colspan="6"><center><i>No Flights In The Airspace</i></center></td></tr>
+        `);
+    }
+}
+
+updateControllers();
+setInterval(() => updateControllers(), 120000);
+setInterval(() => displayControllers(), 1000);
+</script>
 @endsection
