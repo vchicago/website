@@ -275,7 +275,7 @@ function displayControllers() {
         `);
         return;
     }
-    let html = "";
+    html = "";
     if (flights.length > 0) {
         data.forEach(flight => {
             html = `${html}
