@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('SoloCerts:UpdateSoloCerts')->daily();
-        $schedule->command('RosterUpdate:UpdateRoster')->hourly();
+        $schedule->command('roster:update')->hourly();
         $schedule->command('Weather:UpdateWeather')->everyFiveMinutes();
         $schedule->command('OnlineControllers:GetControllers')->everyMinute();
         $schedule->command('Event:SendEventReminder')->dailyAt('00:30')->timezone('America/Chicago');
