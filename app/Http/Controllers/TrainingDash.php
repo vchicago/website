@@ -347,9 +347,9 @@ class TrainingDash extends Controller
     }
 
     public function otsCenter() {
-        $ots_new = Ots::where('status', 0)->orderBy('created_at', 'DSC')->paginate(25);
-        $ots_accepted = Ots::where('status', 1)->orderBy('created_at', 'DSC')->paginate(25);
-        $ots_complete = Ots::where('status', 2)->orWhere('status', 3)->orderBy('created_at', 'DSC')->paginate(25);
+        $ots_new = Ots::where('status', 0)->orderBy('created_at', 'DESC')->paginate(25);
+        $ots_accepted = Ots::where('status', 1)->orderBy('created_at', 'DESC')->paginate(25);
+        $ots_complete = Ots::where('status', 2)->orWhere('status', 3)->orderBy('created_at', 'DESC')->paginate(25);
         $instructors = User::orderBy('lname', 'ASC')->get()->filter(function($user){
                     return $user->hasRole('ins');
                 })->pluck('full_name', 'id');

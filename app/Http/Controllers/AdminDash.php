@@ -991,7 +991,7 @@ class AdminDash extends Controller
     public function showFeedback() {
         $controllers = User::where('status', 1)->orderBy('lname', 'ASC')->get()->pluck('backwards_name', 'id');
         $feedback = Feedback::where('status', 0)->orderBy('created_at', 'ASC')->get();
-        $feedback_p = Feedback::where('status', 1)->orwhere('status', 2)->orderBy('updated_at', 'DSC')->paginate(25);
+        $feedback_p = Feedback::where('status', 1)->orwhere('status', 2)->orderBy('updated_at', 'DESC')->paginate(25);
         return view('dashboard.admin.feedback')->with('feedback', $feedback)->with('feedback_p', $feedback_p)->with('controllers', $controllers);
     }
 
@@ -1525,8 +1525,8 @@ class AdminDash extends Controller
     }
 
     public function setEventPositionPreset(Request $request, $id) {
-        $positions = EventPosition::where('event_id', $id)->orderBy('id', 'DSC')->get();
-        $last_preset_position = PresetPosition::orderBy('id', 'DSC')->first()->id;
+        $positions = EventPosition::where('event_id', $id)->orderBy('id', 'DESC')->get();
+        $last_preset_position = PresetPosition::orderBy('id', 'DESC')->first()->id;
         $last = $last_preset_position + 1;
         $preset_positions = $positions->count() + $last_preset_position;
 
@@ -1572,8 +1572,8 @@ class AdminDash extends Controller
     }
 
     public function incidentReportIndex() {
-        $new_reports = Incident::where('status', 0)->orderBy('created_at', 'DSC')->get();
-        $archive_reports = Incident::where('status', 1)->orderBy('created_at', 'DSC')->paginate(20);
+        $new_reports = Incident::where('status', 0)->orderBy('created_at', 'DESC')->get();
+        $archive_reports = Incident::where('status', 1)->orderBy('created_at', 'DESC')->paginate(20);
 
         return view('dashboard.admin.incident_reports.index')->with('new_reports', $new_reports)->with('archive_reports', $archive_reports);
     }
@@ -1612,7 +1612,7 @@ class AdminDash extends Controller
     }
 
     public function showAudits() {
-        $audits = Audit::orderBy('created_at', 'DSC')->paginate(50);
+        $audits = Audit::orderBy('created_at', 'DESC')->paginate(50);
         return view('dashboard.admin.audits')->with('audits', $audits);
     }
 }
