@@ -144,7 +144,7 @@ function displayControllers() {
     }
     let html = "";
     if (atc.length > 0) {
-        data.forEach(controller => {
+        atc.forEach(controller => {
             let duration = ((new Date()) - (new Date(controller['logon_time']))).toISOString().substr(11, 5).replaceAll(":", "+");
             html = `${html}
                 <tr>
