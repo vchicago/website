@@ -5,30 +5,16 @@
 				<br>
 	            <h5 class="text-primary"><i class="fa fa-broadcast-tower rotate-n-15"></i> Online Controllers</h5>
             <div class="table">
-                <table class="table table-bordered table-responsive-lg table-sm">
+                <table class="table table-bordered table-responsive-lg table-sm" id="onlineControllers">
                     <thead>
                         <th scope="col" class="text-xs"><center>Position</center></th>
                         <th scope="col" class="text-xs"><center>Controller</center></th>
                         <th scope="col" class="text-xs"><center>Time Online</center></th>
                     </thead>
                     <tbody>
-                        @if($controllers->count() > 0)
-                            @foreach($controllers as $c)
-                                <tr>
-                                    <td class="text-xs"><center>{{ $c->position }}</center></td>
-                                    <td class="text-xs"><center>{{ $c->name }}</center></td>
-                                    <td class="text-xs"><center>{{ $c->time_online }}</center></td>
-                                </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="4" class="text-xs"><center><i>No Controllers Online</i></center></td>
-                            </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>
-			<p class="text-xs"><i class="fas fa-sync-alt fa-spin"></i> Last Updated {{ $controllers_update }}Z</p>
 	</div>
 	</div>
 	</div>
@@ -74,4 +60,3 @@
 	</div>
 	</div>
 </div>
-		

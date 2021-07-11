@@ -50,9 +50,6 @@ class ARTCCOverflights extends Command
 
         $result = json_decode($res->getBody());
         foreach($result as $r) {
-            $response = $client->request('GET', 'https://cert.vatsim.net/vatsimnet/idstatus.php?cid='.$r->cid);
-            $res = new SimpleXMLElement($response->getBody());
-            $pilot_name = $res->user->name_first.' '.$res->user->name_last;
             $flight = new Overflight;
             $flight->pilot_cid = $r->cid;
             $flight->pilot_name = $pilot_name;

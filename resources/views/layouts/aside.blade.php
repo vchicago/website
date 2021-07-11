@@ -6,7 +6,7 @@
 	            <h5><i class="fa fa-broadcast-tower rotate-n-15 text-primary"></i> Online Controllers</h5></center>
 				<hr>
             <div class="table">
-                <table class="table table-borderless table-responsive-lg table-sm">
+                <table class="table table-borderless table-responsive-lg table-sm" id="onlineControllers">
                     <thead>
                         <th scope="col"><center><small>Position</small></center></th>
                         <th scope="col"><center><small>Controller</small></center></th>
@@ -29,7 +29,6 @@
                     </tbody>
                 </table>
             </div>
-			<small>Last Updated {{ $controllers_update }}Z</small>
 	<br><br>
 	</div>
 	</div>
@@ -49,4 +48,3 @@
 	</div>
 	</div>
 </div>
-		
