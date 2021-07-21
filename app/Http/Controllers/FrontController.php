@@ -26,7 +26,6 @@ use Config;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 use Mail;
 use Illuminate\Support\Facades\DB;
 use Response;
@@ -354,14 +353,14 @@ class FrontController extends Controller
 
         //Continue Request
         $feedback = new Feedback;
-        $feedback->controller_id = Input::get('controller');
-        $feedback->position = Input::get('position');
-        $feedback->service_level = Input::get('service');
-        $feedback->callsign = Input::get('callsign');
-        $feedback->pilot_name = Input::get('pilot_name');
-        $feedback->pilot_email = Input::get('pilot_email');
-        $feedback->pilot_cid = Input::get('pilot_cid');
-        $feedback->comments = Input::get('comments');
+        $feedback->controller_id = $request->get('controller');
+        $feedback->position = $request->get('position');
+        $feedback->service_level = $request->get('service');
+        $feedback->callsign = $request->get('callsign');
+        $feedback->pilot_name = $request->get('pilot_name');
+        $feedback->pilot_email = $request->get('pilot_email');
+        $feedback->pilot_cid = $request->get('pilot_cid');
+        $feedback->comments = $request->get('comments');
         $feedback->status = 0;
         $feedback->save();
 
