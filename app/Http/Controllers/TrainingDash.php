@@ -112,20 +112,20 @@ class TrainingDash extends Controller
         return redirect('/dashboard/training/info')->with('success', 'The section was updated successfully.');
     }
    
-    public function saveSession()
+    public function saveSession(Request $request)
 	{
 		$id = Auth::id();
 		$nSessions = MentorAvail::where('trainee_id', $id)->where('slot', '>', Carbon::now())->count();
 
 		
 
-		$position = Input::get('position');
-		$slot_id = Input::get('slot');
+		$position = $request->get('position');
+		$slot_id = $request->get('slot');
 		$Slot = MentorAvail::find($slot_id);
 
 		$Slot->trainee_id = $id;
 		$Slot->position_id = $position;
-		$Slot->trainee_comments = Input::get('comments');
+		$Slot->trainee_comments = $request->get('comments');
 		$Slot->save();
 
 		ActivityLog::create(['note' => 'Accepted Session: '.$Slot->slot, 'user_id' => Auth::id(), 'log_state' => 1, 'log_type' => 6]);

@@ -6,8 +6,8 @@ use App\User;
 use Mail;
 use Auth;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 class TrainingController extends Controller {
 	public function cancelSession($id)
@@ -36,15 +36,15 @@ class TrainingController extends Controller {
 			->get();
 		return View('dashboard.training.sch.mtr_avail')->with('availability', $availability);
     }
-	public function saveSession()
+	public function saveSession(Request $request)
 	{
 		$id = Auth::id();
 		$nSessions = MentorAvail::where('trainee_id', $id)->where('slot', '>', Carbon::now())->count();
-		$slot_id = Input::get('slot');
+		$slot_id = $request->get('slot');
 		$Slot = MentorAvail::find($slot_id);
 		$Slot->trainee_id = $id;
-		$Slot->trainee_comments = Input::get('comments');
-		$Slot->position_id =  Input::get('position');
+		$Slot->trainee_comments = $request->get('comments');
+		$Slot->position_id =  $request->get('position');
 		$Slot->save();
 		
 		Mail::send('emails.training.new_session', ['Slot' => $Slot], function($message) use ($Slot){

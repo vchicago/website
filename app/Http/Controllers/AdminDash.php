@@ -29,7 +29,6 @@ use Carbon\Carbon;
 use Config;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use Mail;
 use Storage;
 
@@ -66,15 +65,15 @@ class AdminDash extends Controller
         ]);
 
         $scenery = new Scenery;
-        $scenery->airport = Input::get('apt');
-        $scenery->developer = Input::get('dev');
-        $scenery->sim = Input::get('sim');
-        $scenery->link = Input::get('url');
-        $scenery->price = Input::get('price');
-        $scenery->currency = Input::get('currency');
-        $scenery->image1 = Input::get('image1');
-        $scenery->image2 = Input::get('image2');
-        $scenery->image3 = Input::get('image3');
+        $scenery->airport = $request->get('apt');
+        $scenery->developer = $request->get('dev');
+        $scenery->sim = $request->get('sim');
+        $scenery->link = $request->get('url');
+        $scenery->price = $request->get('price');
+        $scenery->currency = $request->get('currency');
+        $scenery->image1 = $request->get('image1');
+        $scenery->image2 = $request->get('image2');
+        $scenery->image3 = $request->get('image3');
         $scenery->save();
 
         $audit = new Audit;
@@ -101,13 +100,13 @@ class AdminDash extends Controller
         ]);
 
         $scenery = Scenery::find($id);
-        $scenery->airport = Input::get('apt');
-        $scenery->developer = Input::get('dev');
-        $scenery->sim = Input::get('sim');
-        $scenery->link = Input::get('url');
-        $scenery->image1 = Input::get('image1');
-        $scenery->image2 = Input::get('image2');
-        $scenery->image3 = Input::get('image3');
+        $scenery->airport = $request->get('apt');
+        $scenery->developer = $request->get('dev');
+        $scenery->sim = $request->get('sim');
+        $scenery->link = $request->get('url');
+        $scenery->image1 = $request->get('image1');
+        $scenery->image2 = $request->get('image2');
+        $scenery->image3 = $request->get('image3');
         $scenery->save();
 
         $audit = new Audit;
@@ -150,13 +149,13 @@ class AdminDash extends Controller
         ]);
 
         $a = new Airport;
-        $a->name = Input::get('name');
-        $a->ltr_3 = Input::get('FAA');
-        $a->ltr_4 = Input::get('ICAO');
+        $a->name = $request->get('name');
+        $a->ltr_3 = $request->get('FAA');
+        $a->ltr_4 = $request->get('ICAO');
         $a->save();
 
         $metar = new Metar;
-        $metar->icao = Input::get('ICAO');
+        $metar->icao = $request->get('ICAO');
         $metar->save();
 
         Artisan::call('Weather:UpdateWeather');
@@ -284,36 +283,36 @@ class AdminDash extends Controller
         $user = User::find($id);
 
         if(Auth::user()->isAbleTo('roster')) {
-            $user->del = Input::get('del');
-            $user->gnd = Input::get('gnd');
-            $user->twr = Input::get('twr');
-            $user->app = Input::get('app');
-            $user->ctr = Input::get('ctr');
-            $user->initials = Input::get('initials');
-            $user->train_pwr = Input::get('train_pwr');
-            $user->monitor_pwr = Input::get('monitor_pwr');
-            if(Input::get('visitor') == null) {
+            $user->del = $request->get('del');
+            $user->gnd = $request->get('gnd');
+            $user->twr = $request->get('twr');
+            $user->app = $request->get('app');
+            $user->ctr = $request->get('ctr');
+            $user->initials = $request->get('initials');
+            $user->train_pwr = $request->get('train_pwr');
+            $user->monitor_pwr = $request->get('monitor_pwr');
+            if($request->get('visitor') == null) {
                 $user->visitor = 0;
-            } elseif(Input::get('visitor') == 1) {
+            } elseif($request->get('visitor') == 1) {
                 $user->visitor = 1;
             }
-            if(Input::get('canTrain') == null) {
+            if($request->get('canTrain') == null) {
                 $user->isAbleToTrain = 0;
-            } elseif(Input::get('canTrain') == 1) {
+            } elseif($request->get('canTrain') == 1) {
                 $user->isAbleToTrain = 1;
             }
-            if(Input::get('canEvents') == null) {
+            if($request->get('canEvents') == null) {
                 $user->isAbleToEvents = 0;
-            } elseif(Input::get('canEvents') == 1) {
+            } elseif($request->get('canEvents') == 1) {
                 $user->isAbleToEvents = 1;
             }
-            if(Input::get('api_exempt') == null) {
+            if($request->get('api_exempt') == null) {
                 $user->api_exempt = 0;
-            } elseif(Input::get('api_exempt') == 1) {
+            } elseif($request->get('api_exempt') == 1) {
                 $user->api_exempt = 1;
             }
-            $user->status = Input::get('status');
-            $user->visitor_from = Input::get('visitor_from');
+            $user->status = $request->get('status');
+            $user->visitor_from = $request->get('visitor_from');
             $user->save();
 
             if($user->hasRole(['atm', 'datm', 'ta', 'ata', 'wm', 'awm', 'fe', 'afe', 'ec', 'aec']) == true) {
@@ -340,25 +339,25 @@ class AdminDash extends Controller
                 }
             }
 
-            if(Input::get('staff') == 1) {
+            if($request->get('staff') == 1) {
                 $user->attachRole('atm');
-            } elseif(Input::get('staff') == 2) {
+            } elseif($request->get('staff') == 2) {
                 $user->attachRole('datm');
-            } elseif(Input::get('staff') == 3) {
+            } elseif($request->get('staff') == 3) {
                 $user->attachRole('ta');
-            } elseif(Input::get('staff') == 4) {
+            } elseif($request->get('staff') == 4) {
                 $user->attachRole('ata');
-            } elseif(Input::get('staff') == 5) {
+            } elseif($request->get('staff') == 5) {
                 $user->attachRole('wm');
-            } elseif(Input::get('staff') == 6) {
+            } elseif($request->get('staff') == 6) {
                 $user->attachRole('awm');
-            } elseif(Input::get('staff') == 7) {
+            } elseif($request->get('staff') == 7) {
                 $user->attachRole('fe');
-            } elseif(Input::get('staff') == 8) {
+            } elseif($request->get('staff') == 8) {
                 $user->attachRole('afe');
-            } elseif(Input::get('staff') == 9) {
+            } elseif($request->get('staff') == 9) {
                 $user->attachRole('ec');
-            } elseif(Input::get('staff') == 10) {
+            } elseif($request->get('staff') == 10) {
                 $user->attachRole('aec');
             }
 
@@ -371,14 +370,14 @@ class AdminDash extends Controller
                     $user->save();
                 }
             }
-            if(Input::get('training') == 1) {
+            if($request->get('training') == 1) {
                 $user->attachRole('mtr');
                 if($user->train_pwr == null) {
                     $user->train_pwr = 1;
                     $user->monitor_pwr = 1;
                     $user->save();
                 }
-            } elseif(Input::get('training') == 2) {
+            } elseif($request->get('training') == 2) {
                 $user->attachRole('ins');
                 if($user->train_pwr == null) {
                     $user->train_pwr = 6;
@@ -387,11 +386,11 @@ class AdminDash extends Controller
                 }
             }
         } else {
-            $user->del = Input::get('del');
-            $user->gnd = Input::get('gnd');
-            $user->twr = Input::get('twr');
-            $user->app = Input::get('app');
-            $user->ctr = Input::get('ctr');
+            $user->del = $request->get('del');
+            $user->gnd = $request->get('gnd');
+            $user->twr = $request->get('twr');
+            $user->app = $request->get('app');
+            $user->ctr = $request->get('ctr');
             $user->save();
         }
 
@@ -756,14 +755,14 @@ class AdminDash extends Controller
 
     public function storeVisitor(Request $request) {
         $user = new User;
-        $user->id = Input::get('cid');
-        $user->fname = Input::get('fname');
-        $user->lname = Input::get('lname');
-        $user->email = Input::get('email');
-        $user->initials = Input::get('initials');
-        $user->rating_id = Input::get('rating_id');
+        $user->id = $request->get('cid');
+        $user->fname = $request->get('fname');
+        $user->lname = $request->get('lname');
+        $user->email = $request->get('email');
+        $user->initials = $request->get('initials');
+        $user->rating_id = $request->get('rating_id');
         $user->visitor = '1';
-        $user->visitor_from = Input::get('visitor_from');
+        $user->visitor_from = $request->get('visitor_from');
         $user->status = '1';
         $user->added_to_facility = Carbon::now();
         $user->save();
@@ -828,10 +827,10 @@ class AdminDash extends Controller
         ]);
 
         $calendar = new Calendar;
-        $calendar->title = Input::get('title');
-        $calendar->date = Input::get('date');
-        $calendar->time = Input::get('time');
-        $calendar->body = Input::get('body');
+        $calendar->title = $request->get('title');
+        $calendar->date = $request->get('date');
+        $calendar->time = $request->get('time');
+        $calendar->body = $request->get('body');
         $calendar->type = 1;
         $calendar->created_by = Auth::id();
         $calendar->save();
@@ -861,10 +860,10 @@ class AdminDash extends Controller
             'body' => 'required'
         ]);
 
-        $calendar->title = Input::get('title');
-        $calendar->date = Input::get('date');
-        $calendar->time = Input::get('time');
-        $calendar->body = Input::get('body');
+        $calendar->title = $request->get('title');
+        $calendar->date = $request->get('date');
+        $calendar->time = $request->get('time');
+        $calendar->body = $request->get('body');
         $calendar->type = 1;
         $calendar->updated_by = Auth::id();
         $calendar->save();
@@ -937,9 +936,9 @@ class AdminDash extends Controller
         $public_url = '/storage/files/'.$name;
 
         $file = new File;
-        $file->name = Input::get('title');
-        $file->type = Input::get('type');
-        $file->desc = Input::get('desc');
+        $file->name = $request->get('title');
+        $file->type = $request->get('type');
+        $file->desc = $request->get('desc');
         $file->path = $public_url;
         $file->save();
 
@@ -960,9 +959,9 @@ class AdminDash extends Controller
 
     public function saveFile(Request $request, $id) {
         $file = File::find($id);
-        $file->name = Input::get('title');
-        $file->type = Input::get('type');
-        $file->desc = Input::get('desc');
+        $file->name = $request->get('title');
+        $file->type = $request->get('type');
+        $file->desc = $request->get('desc');
         $file->save();
 
         $audit = new Audit;

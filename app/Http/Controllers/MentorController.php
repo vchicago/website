@@ -5,8 +5,8 @@ use App\MentorAvail;
 use App\User;
 use Auth;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 class MentorController extends Controller {
     public function showAvail()
@@ -15,10 +15,10 @@ class MentorController extends Controller {
 		return View('dashboard.training.mentors.mentoravail')->with('availability', $availability);
     }
 	
-	public function cancelSession($id)
+	public function cancelSession(Request $request, $id)
 	{
 		$request = MentorAvail::find($id);
-		$request->isAbleTocel_message = Input::get('cancel');
+		$request->isAbleTocel_message = $request->get('cancel');
 		$request->save();
 		$request->sendCancellationEmail();
 		$request->delete();
@@ -28,10 +28,10 @@ class MentorController extends Controller {
 		return Redirect::to('dashboard.training.mentors.sessions')->with('message', 'Session canceled. Student has been notified!');
 	}
 	
-    public function postAvail()
+    public function postAvail(Request $request)
 	{
 		$mentor_id = Auth::id();
-		$slots = Input::get('slots');
+		$slots = $request->get('slots');
 		$today = new Carbon("midnight today", 'America/New_York');
 
 		$availability = MentorAvail::where('mentor_id', '=', $mentor_id)->where('slot', '>=', $today)->get();
