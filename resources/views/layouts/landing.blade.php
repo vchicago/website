@@ -107,7 +107,7 @@ table.table-fit tbody td, table.table-fit tfoot td {
   if (document.getElementById('dadjoke') !== null) {
       $(() => {
           $.get("/joke").done((data) => {
-              const joke = data.Joke;
+              const joke = JSON.parse(data).Joke;
               $("#dadjoke").html(`${joke.Opener} ${joke.Punchline}`);
           }).fail(() => {
               $("#dadjoke").html("Failed to load joke. :(");
