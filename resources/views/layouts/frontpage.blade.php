@@ -177,7 +177,7 @@
      <script type="text/javascript">
          if (document.getElementById('dadjoke') !== null) {
              $(() => {
-                 $.get("https://dadjokes.online/noecho").done((data) => {
+                 $.get("/joke").done((data) => {
                      const joke = dad.Joke;
                      $("#dadjoke").html(`${joke.Opener} ${joke.Punchline}`);
                  }).fail(() => {
