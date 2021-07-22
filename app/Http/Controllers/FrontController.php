@@ -328,7 +328,7 @@ class FrontController extends Controller
     }
 
     public function getJoke() {
-        return file_get_contents("/joke");
+        return file_get_contents("https://dadjokes.online/noecho");
     }
 
     public function saveNewFeedback(Request $request) {
