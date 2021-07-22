@@ -103,7 +103,18 @@ table.table-fit tbody td, table.table-fit tfoot td {
   <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-
+<script type="text/javascript">
+  if (document.getElementById('dadjoke') !== null) {
+      $(() => {
+          $.get("/joke").done((data) => {
+              const joke = JSON.parse(data).Joke;
+              $("#dadjoke").html(`${joke.Opener} ${joke.Punchline}`);
+          }).fail(() => {
+              $("#dadjoke").html("Failed to load joke. :(");
+          });
+      })
+  }
+</script>
 
   <!-- Custom scripts for all pages-->
   <script src="/js/sb-admin-2.min.js"></script>

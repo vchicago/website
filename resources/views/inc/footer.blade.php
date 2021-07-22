@@ -9,6 +9,8 @@
 			<br>
         @endif
             © {{ Carbon\Carbon::now()->year }} vZAU ARTCC
+            <br><br>
+            <span id="dadjoke">Loading joke...</span>
         </p>
           </div>
       </footer>

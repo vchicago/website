@@ -327,6 +327,10 @@ class FrontController extends Controller
         return view('site.feedback')->with('controllers', $controllers);
     }
 
+    public function getJoke() {
+        return file_get_contents("https://dadjokes.online/noecho");
+    }
+
     public function saveNewFeedback(Request $request) {
         $validatedData = $request->validate([
             'controller' => 'required',
