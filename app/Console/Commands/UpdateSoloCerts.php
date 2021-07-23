@@ -44,7 +44,7 @@ class UpdateSoloCerts extends Command
     {
         $client = new Client();
         $res = $client->request('GET', 'https://api.vatusa.net/v2/solo');
-        $solo_certs = json_decode($res->getBody());
+        $solo_certs = json_decode($res->getBody())->data;
 
         foreach($solo_certs as $s) {
             if(! ($s === true || $s === false)) {
