@@ -9,9 +9,11 @@ use Config;
 use DB;
 use Eloquent\Collection;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class RosterUpdate extends Command
 {
@@ -175,7 +177,12 @@ class RosterUpdate extends Command
     public function handle()
     {
         $client = new Client();
-        $res = $client->get('https://api.vatusa.net/v2/facility/'.Config::get('vatusa.facility').'/roster?apikey='.Config::get('vatusa.api_key'));
+        try {
+            $res = $client->get('https://api.vatusa.net/v2/facility/'.Config::get('vatusa.facility').'/roster?apikey='.Config::get('vatusa.api_key'));
+        } catch (RequestException $exception) {
+            Log::warning('VATUSA API Request failed: '.$exception->getMessage());
+            return;
+        }
         $users = User::where('visitor', '0')->where('status', '1')->get()->pluck('id');
         if ($res->getStatusCode() == "200") {
             $roster = (json_decode($res->getBody()))->data;
