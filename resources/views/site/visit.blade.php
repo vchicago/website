@@ -53,7 +53,7 @@ Visitor Application
             {!! Form::label('reason', 'Explanation of Why You Want to Visit '.\Config::get('facility.name_short').' ARTCC') !!}
             {!! Form::textArea('reason', null, ['placeholder' => 'Required', 'class' => 'form-control']) !!}
         </div>
-		<div class="g-recaptcha" data-sitekey="6Lf0BcgUAAAAAIj7fnd58WCsh_Fo5J2y4MXKv6x1"></div>
+		<div class="g-recaptcha" data-sitekey="6LfCjr0bAAAAAMxInZ7Nyml8r388x07NSYMTQuaQ"></div>
         <br>
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#visitAgree">
