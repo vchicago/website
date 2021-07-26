@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Http\Request;
+use League\OAuth2\Client\OptionProvider\HttpBasicAuthOptionProvider;
 use League\OAuth2\Client\Provider\GenericProvider;
 
 class ZAUProvider extends GenericProvider
@@ -15,11 +16,13 @@ class ZAUProvider extends GenericProvider
             "clientId" => config("oauth2.clientId"),
             "clientSecret" => config("oauth2.clientSecret"),
             "redirectUri" => route("login"),
-            "urlAuthorize" => config("oauth2.urlAuthorize"),
-            "urlAccessToken" => config("oauth2.tokenEndpoint"),
-            "urlResourceOwnerDetails" => config("oauth2.userEndpoint"),
+            "urlAuthorize" => config("oauth2.baseUrl") . config("oauth2.authorizationEndpoint"),
+            "urlAccessToken" => config("oauth2.baseUrl") . config("oauth2.tokenEndpoint"),
+            "urlResourceOwnerDetails" => config("oauth2.baseUrl") . config("oauth2.userEndpoint"),
             "scopes" => config("oauth2.scopes"),
             "scopeSeperator" => " ",
+        ], [
+//            "optionProvider" => new HttpBasicAuthOptionProvider
         ]);
     }
 

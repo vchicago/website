@@ -41,20 +41,17 @@ class LoginController extends Controller
             throw new \Exception("Error from identity provider", 500, $e);
         }
 
-        $resourceOwner = json_decode(json_encode($this->provider->getResourceOwner($token)->toArray()));
-        if (!isset($resourceOwner->data)
-            || !isset($resourceOwner->data->cid) || 
-            $resourceOwner->data->oauth->token_valid !== true)
-        {
+        $resourceOwner = json_decode(json_encode($this->provider->getResourceOwner($token)->toArray()))->user;
+        if (!isset($resourceOwner->cid)) {
             throw new \Exception("Invalid response", 500);
         }
 
-        $user = User::find($resourceOwner->data->cid);
+        $user = User::find($resourceOwner->cid);
         if (!$user) {
             return redirect('/')->with('error', 'You have not been found on the roster. If you have recently joined, please allow up to an hour for the roster to update.');
         }
 
-        Auth::loginUsingId($resourceOwner->data->cid, true);
+        Auth::loginUsingId($resourceOwner->cid, true);
         return redirect("/dashboard")->with("success", "You have logged in successfully.");
     }
 
