@@ -12,6 +12,12 @@
 */
 
 /*
+ * New Auth
+ */
+Route::get("/login", "LoginController@login")->middleware("guest")->name("login");
+Route::get("/logout", "LoginController@logout")->middleware("auth")->name("logout");
+
+/*
 *   Front Page Stuff
 */
 Route::get('/', 'FrontController@home');
@@ -44,9 +50,9 @@ Route::get("joke", "FrontController@getJoke");
 */
 Route::get('/controllers/roster', 'RosterController@index');
 Route::get('/controllers/staff', 'RosterController@staffIndex');
-Route::get('/login', 'RosterController@login');
+/*Route::get('/login', 'RosterController@login');
 Route::get('login', [ 'as' => 'login', 'uses' => 'RosterController@login']);
-Route::get('/logout', 'RosterController@logout');
+Route::get('/logout', 'RosterController@logout'); */
 /*
 *   End Roster
 */
