@@ -86,13 +86,7 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Website Administration</h6>
-			@if(Auth::user()->isAbleTo('staff'))
-            <a class="collapse-item" href="/dashboard/admin/airports">Airport Management</a>
-			@endif
-			@if(Auth::user()->isAbleTo('scenery'))	
-            <a class="collapse-item" href="/dashboard/admin/scenery">Scenery Management</a>
-			@endif
+      <a href="https://mail.chicagoartcc.org">WebMail</a>
 			@if(Auth::user()->isAbleTo('snrStaff'))
 			<a class="collapse-item" href="/dashboard/admin/announcement">Announcements</a>
 			<a class="collapse-item" href="/dashboard/admin/calendar">News</a>

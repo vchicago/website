@@ -16,6 +16,7 @@
     "laravel/helpers": "1.*",
     "laravel/tinker": "^1.0",
     "laravelcollective/html": "6.*",
+    "league/oauth2-client": "^2.6",
     "santigarcor/laratrust": "6.*",
     "sentry/sentry-laravel": "^2.7",
     "techguy/laravel-ckeditor": "^1.1"
