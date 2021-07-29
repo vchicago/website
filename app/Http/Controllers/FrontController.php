@@ -286,7 +286,7 @@ class FrontController extends Controller
         ]);
 
         //Google reCAPTCHA Verification
-        $client = new Client;
+        /*$client = new Client;
         $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => [
                 'secret' => Config::get('google.recaptcha'),
@@ -296,7 +296,7 @@ class FrontController extends Controller
         $r = json_decode($response->getBody())->success;
         if($r != true) {
             return redirect()->back()->with('error', 'You must complete the ReCaptcha to continue.');
-        }
+        }*/
         //Rating Check
         if($request->rating == 1) {
             return redirect()->back()->with('error', 'You must have a S1 Controller rating or higher to become a visitor.');
@@ -343,7 +343,7 @@ class FrontController extends Controller
         ]);
 
         //Google reCAPTCHA Verification
-        $client = new Client;
+        /*$client = new Client;
         $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => [
                 'secret' => Config::get('google.recaptcha'),
@@ -353,7 +353,7 @@ class FrontController extends Controller
         $r = json_decode($response->getBody())->success;
         if($r != true) {
             return redirect()->back()->with('error', 'You must complete the ReCaptcha to continue.');
-        }
+        }*/
 
         //Continue Request
         $feedback = new Feedback;
@@ -397,7 +397,7 @@ class FrontController extends Controller
         ]);
 
         //Google reCAPTCHA Verification
-        $client = new Client;
+        /*$client = new Client;
         $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => [
                 'secret' => Config::get('google.recaptcha'),
@@ -407,7 +407,7 @@ class FrontController extends Controller
         $r = json_decode($response->getBody())->success;
         if($r != true) {
             return redirect()->back()->with('error', 'You must complete the ReCaptcha to continue.');
-        }
+        }*/
 
         //Continue Request
         $name = $request->name;
