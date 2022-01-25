@@ -57,14 +57,14 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Student Links:</h6>
-            <script id="setmore_script" type="text/javascript" src="https://my.setmore.com/webapp/js/src/others/setmore_iframe.js"></script><a id="Setmore_button_iframe"  class="collapse-item" href="https://my.setmore.com/bookingpage/{{ \Config::get('facility.setmore') }}">Schedule Training</a>
+            <a href="https://teamup.com/kscbai9aqdsdbufc79" target="_blank" class="collapse-item">Schedule Training</a>
             <a class="collapse-item" href="/dashboard/training/atcast">ATCast Videos</a>
 			<a class="collapse-item" href="/dashboard/training/info">Training Information</a>
             @if(Auth::user()->isAbleTo('train'))
 			<div class="collapse-divider"></div>
 			<h6 class="collapse-header">Mentors/Instructors:</h6>
+      <a href="https://teamup.com/kscbai9aqdsdbufc79" target="_blank" class="collapse-item">Schedule Training</a>
             <a class="collapse-item" href="/dashboard/training/tickets">Training Tickets</a>
-			<a class="collapse-item" href="https://my.setmore.com/" target="_blank">Schedule Management</a>
 				@if(Auth::user()->hasRole('ins') || Auth::user()->isAbleTo('snrStaff'))
 					<a class="collapse-item" href="/dashboard/training/ots-center">OTS Center</a>
 				@endif
@@ -122,7 +122,7 @@
         <a class="nav-link" href="/dashboard/admin/audits">
           <i class="fas fa-file-alt"></i>
           <span>Admin Log</span></a>
-      </li> 
+      </li>
 	@endif
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
