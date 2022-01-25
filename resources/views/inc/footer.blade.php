@@ -8,7 +8,7 @@
             <button class="btn btn-secondary btn-sm" onclick="snowStorm.stop();return false">Stop Snow</button>
 			<br>
         @endif
-            © {{ Carbon\Carbon::now()->year }} vZAU ARTCC
+            © {{ Carbon\Carbon::now()->year }} vZAU Ar-tek
             <br><br>
             <span id="dadjoke">Loading joke...</span>
         </p>
