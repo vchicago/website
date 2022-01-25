@@ -313,7 +313,6 @@ class FrontController extends Controller
         $visit->save();
 
         Mail::send('emails.visit.new', ['visit' => $visit], function($message) use ($visit){
-          
             $message->from('auto@chicagoartcc.email', 'vZAU Visiting Department')->subject('New Visitor Request Submitted');
           
             $message->to($visit->email)->cc('atm@'.Config::get('facility.email'))->cc('datm@'.Config::get('facility.email'));
