@@ -376,15 +376,6 @@ Update Controller
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-10">
-                        @if($user->isAbleToTrain == 1)
-                            {!! Form::label('canTrain', 'Allow Training?') !!}
-                            {!! Form::checkbox('canTrain', 1, true) !!}
-                        @else
-                            {!! Form::label('canTrain', 'Allow Training?') !!}
-                            {!! Form::checkbox('canTrain', 1) !!}
-                        @endif
-                    </div>
-                    <div class="col-sm-10">
                         @if($user->visitor == 1)
                             {!! Form::label('visitor', 'Visitor?') !!}
                             {!! Form::checkbox('visitor', 1, true) !!}

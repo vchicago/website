@@ -47,8 +47,6 @@
         </div>
       </li>
 
-      <!-- Nav Item - Training Collapse Menu -->
-	  @if(Auth::user()->isAbleToTrain == 1 || Auth::user()->isAbleTo('train'))
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
@@ -72,7 +70,7 @@
 		  </div>
         </div>
       </li>
-	  @endif
+
 	  @if(Auth::user()->isAbleTo('staff') || Auth::user()->isAbleTo('email') || Auth::user()->isAbleTo('scenery') || Auth::user()->isAbleTo('files') || Auth::user()->isAbleTo('events'))
 
       <!-- Divider -->
